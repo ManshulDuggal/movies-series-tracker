@@ -45,9 +45,8 @@ const DetailData = () => {
           <div className="trailer">
             {trailers.map((data) => (
               <div>
-                <h1 key={data.id}>{data.name} </h1>
+                <h1>{data.name} </h1>
                 <iframe
-                  key={data.id}
                   width="320"
                   height="215"
                   src={"https://www.youtube.com/embed/" + data.key}
@@ -70,7 +69,8 @@ const CardFull = styled(motion.div)`
   top: 0;
   left: 0;
   overflow-y: scroll;
-  padding: 1rem;
+  padding: 5rem 0rem;
+  z-index: 1;
 `;
 const CardContent = styled(motion.div)`
   position: absolute;

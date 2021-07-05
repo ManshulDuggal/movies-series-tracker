@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 margin: 0px;
 padding: 0px;
+
 * {
   scrollbar-width: none;
 }
@@ -35,6 +36,7 @@ padding: 0px;
 
 body{
     background: radial-gradient(#e66465, #9198e5);
+
     
 }
 

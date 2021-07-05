@@ -1,5 +1,4 @@
 const initState = {
-  movieList: [],
   popularSeries: [],
   trendingSeries: [],
 };
