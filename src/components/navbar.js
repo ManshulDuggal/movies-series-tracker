@@ -16,7 +16,7 @@ const Nav = () => {
             <Link to="/series">
               <li>Tv Series</li>
             </Link>
-            <Link to="movie">
+            <Link to="/movie">
               <li>Movies</li>
             </Link>
           </ul>

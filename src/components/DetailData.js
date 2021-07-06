@@ -13,7 +13,7 @@ const DetailData = () => {
     console.log(element);
     if (element.classList.contains("fix")) {
       document.body.style.overflow = "auto";
-      history.push("/");
+      history.push("/movie");
     }
   };
   const { detail, trailers, isLoading } = useSelector((state) => state.detail);
@@ -41,7 +41,7 @@ const DetailData = () => {
             </div>
             <div className="genres">
               {detail.genres.map((data) => (
-                <div key={data.id}>
+                <div>
                   <h3>{data.name}</h3>
                 </div>
               ))}

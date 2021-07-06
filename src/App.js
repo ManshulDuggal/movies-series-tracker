@@ -11,9 +11,18 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Route path={["/movie/:id", "/"]}>
+      <Route path="/" exact>
         <Nav />
         <Home />
+        <TvSeries />
+      </Route>
+      <Route path={["/movie/:id", "/movie"]} exact>
+        <Nav />
+        <Home />
+      </Route>
+
+      <Route path={["/movie/:id", "/series"]} exact>
+        <Nav />
         <TvSeries />
       </Route>
     </div>

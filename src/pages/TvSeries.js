@@ -27,11 +27,11 @@ const TvSeries = () => {
   //uselocation for pooping the card
   const location = useLocation();
 
-  const pathVar = location.pathname.split("/")[2];
-  console.log(pathVar);
+  const pathVar2 = location.pathname.split("/")[2];
+  console.log(pathVar2);
   return (
     <>
-      {pathVar && <DetailData />}
+      {pathVar2 && <DetailData />}
       {!isLoading && (
         <Section>
           <h1>Popular Series</h1>
@@ -93,7 +93,7 @@ const Serieswrapper = styled(motion.div)`
   min-height: 90vh;
   display: grid;
   grid-gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 3fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
 
   h2 {
     font-weight: bolder;
@@ -119,9 +119,15 @@ const Serieswrapper = styled(motion.div)`
 
     h2,
     h1,
-    h3,
+    h3 {
+      font-size: 0.4rem;
+    }
     h4 {
-      font-size: 0.6rem;
+      font-size: 0.5rem;
+      span {
+        padding: 0.5rem;
+        margin-right: 0%;
+      }
     }
   }
 `;
