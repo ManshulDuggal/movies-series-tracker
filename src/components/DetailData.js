@@ -98,6 +98,8 @@ const CardContent = styled(motion.div)`
   width: 80%;
   margin: auto;
 
+  
+
   .rating {
     display: flex;
     justify-content: space-evenly;
@@ -158,7 +160,9 @@ const CardContent = styled(motion.div)`
     padding: 1rem;
     }
 
- 
-  
+    @media only screen and (max-width: 450px) {
+
+        
+    }
 `;
 export default DetailData;

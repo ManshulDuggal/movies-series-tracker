@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
+import notFound from "../images/notFound.png";
 //animations
 import { CardHover } from "../anim/Anim";
 //Rudux
@@ -36,7 +37,14 @@ const MovieCards = ({ name, rating, date, votes, img, id }) => {
 
             <div className="poster"></div>
 
-            <img src={"https://image.tmdb.org/t/p/w342" + img} alt="" />
+            <img
+              src={"https://image.tmdb.org/t/p/w342" + img}
+              alt={notFound}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = { notFound };
+              }}
+            />
 
             <h4>
               votes:

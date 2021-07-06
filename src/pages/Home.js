@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
 import { moviesAction } from "../actions/moviesAction";
 
-
 import MovieCards from "../components/Movies";
 import DetailData from "../components/DetailData";
 import styled from "styled-components";
@@ -102,6 +101,17 @@ const Cardwrapper = styled(motion.div)`
     span {
       padding: 1rem;
       margin-right: 30%;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 3fr));
+
+    h2,
+    h1,
+    h3,
+    h4 {
+      font-size: 0.6rem;
     }
   }
 `;

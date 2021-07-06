@@ -31,7 +31,7 @@ const DetailData = () => {
             <h1>Audience : {detailSeries.audult ? "Mature" : "UA"}</h1>
             <div className="image-movie">
               <div className="rating">
-                <h4>{detailSeries.vote_average}</h4>
+                <h4>{detailSeries.vote_average?detailSeries.vote_average:"N/A"}</h4>
                 <h4>
                   <span>votes</span>
                   {detailSeries.vote_count}
@@ -54,7 +54,11 @@ const DetailData = () => {
 
             <div className="description">
               <h1>Summary</h1>
-              <p>{detailSeries.overview}</p>
+              <p>
+                {detailSeries.overview
+                  ? detailSeries.overview
+                  : "not available in api"}
+              </p>
             </div>
             <div className="trailer">
               {trailers.map((data) => (

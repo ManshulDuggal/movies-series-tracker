@@ -67,6 +67,24 @@ const NavWrapper = styled(motion.div)`
       font-family: "Parisienne", cursive;
     }
   }
+  @media only screen and (max-width: 450px) {
+    nav {
+      display: block;
+      text-align: center;
+      padding: 0.8rem;
+    }
+
+    .nav-items {
+      ul {
+        display: block;
+
+        list-style: none;
+        li {
+          margin: 0rem 1rem;
+        }
+      }
+    }
+  }
 `;
 
 export default Nav;

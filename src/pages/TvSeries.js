@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 //Redux
+//importing images
+import notFound from "../images/notFound.png";
 import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
 
@@ -45,7 +47,7 @@ const TvSeries = () => {
                     : "To Be Announced"
                 }
                 votes={series.vote_count}
-                img={series.poster_path}
+                img={series.poster_path ? series.poster_path : { notFound }}
                 id={series.id}
               />
             ))}
@@ -58,9 +60,11 @@ const TvSeries = () => {
                 name={data.title ? data.title : data.original_name}
                 key={data.id}
                 rating={data.vote_average}
-                date={data.release_date ? data.release_date : "To Be Announced"}
+                date={
+                  data.first_air_date ? data.first_air_date : "To Be Announced"
+                }
                 votes={data.vote_count}
-                img={data.poster_path}
+                img={data.poster_path ? data.poster_path : { notFound }}
                 id={data.id}
               />
             ))}
