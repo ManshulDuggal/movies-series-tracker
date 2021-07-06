@@ -1,17 +1,16 @@
 const initState = {
-  detail: { genres: [] },
   trailers: [],
-
+  detailSeries: [],
   isLoading: true,
 };
 
-const detailReducer = (state = initState, action) => {
+const detailSeriesReducer = (state = initState, action) => {
   switch (action.type) {
-    case "GET_DETAIL":
+    case "GET_DETAIL_SERIES":
       return {
         ...state,
+        detailSeries: action.payload.detailSeries,
 
-        detail: action.payload.detail,
         trailers: action.payload.trailers,
         isLoading: false,
       };
@@ -22,4 +21,4 @@ const detailReducer = (state = initState, action) => {
   }
 };
 
-export default detailReducer;
+export default detailSeriesReducer;

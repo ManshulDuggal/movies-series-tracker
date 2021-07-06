@@ -6,13 +6,14 @@ import styled from "styled-components";
 import { CardHover } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
-import { getDetail } from "../actions/detailsAction";
+import { getDetailSeries } from "../actions/detailstvaction";
 //link
 import { Link } from "react-router-dom";
-const MovieCards = ({ name, rating, date, votes, img, id }) => {
+const SeriesCards = ({ name, rating, date, votes, img, id }) => {
   const dispatch = useDispatch();
   const detailHandler = () => {
-    dispatch(getDetail(id));
+    document.body.style.overflow = "hidden";
+    dispatch(getDetailSeries(id));
   };
 
   return (
@@ -64,4 +65,4 @@ const Card = styled(motion.div)`
   box-shadow: #130101ba 1px 1px 20px;
 `;
 
-export default MovieCards;
+export default SeriesCards;

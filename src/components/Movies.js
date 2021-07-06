@@ -10,8 +10,11 @@ import { getDetail } from "../actions/detailsAction";
 //link
 import { Link } from "react-router-dom";
 const MovieCards = ({ name, rating, date, votes, img, id }) => {
+  //load detail handler
+
   const dispatch = useDispatch();
   const detailHandler = () => {
+    document.body.style.overflow = "hidden";
     dispatch(getDetail(id));
   };
 

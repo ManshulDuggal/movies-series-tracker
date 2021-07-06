@@ -1,22 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <NavWrapper>
       <nav>
         <div className="logo">
-          <h1>MoviesSeries</h1>
+          <Link to="/">
+            <h1>MoviesSeries</h1>
+          </Link>
         </div>
         <div className="nav-items">
           <ul>
-            <a href="/series">
+            <Link to="/series">
               <li>Tv Series</li>
-            </a>
-            <a href="movies">
+            </Link>
+            <Link to="movie">
               <li>Movies</li>
-            </a>
+            </Link>
           </ul>
         </div>
       </nav>
@@ -30,6 +32,10 @@ const NavWrapper = styled(motion.div)`
   position: sticky;
   top: 0%;
   z-index: 2;
+
+  a {
+    text-decoration: none;
+  }
   nav {
     background: #0000008b;
     width: 100%;

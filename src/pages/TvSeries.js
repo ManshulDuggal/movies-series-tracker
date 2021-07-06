@@ -5,21 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { seriesAction } from "../actions/seriesAction";
 
-import MovieCards from "../components/Movies";
-import DetailData from "../components/DetailData";
+import SeriesCard from "../components/Series";
+import DetailData from "../components/DetailDataSeries";
 import styled from "styled-components";
 
 import { motion } from "framer-motion";
 
 import { useLocation } from "react-router";
-const Home = () => {
+const TvSeries = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(seriesAction());
   }, [dispatch]);
 
   //get the data back from the state
-  const { popularSeries, trendingSeries } = useSelector(
+  const { popularSeries, trendingSeries, isLoading } = useSelector(
     (state) => state.series
   );
   //uselocation for pooping the card
@@ -28,41 +28,46 @@ const Home = () => {
   const pathVar = location.pathname.split("/")[2];
   console.log(pathVar);
   return (
-    <div>
+    <>
       {pathVar && <DetailData />}
+      {!isLoading && (
+        <Section>
+          <h1>Popular Series</h1>
+          <Serieswrapper>
+            {popularSeries.map((series) => (
+              <SeriesCard
+                name={series.name}
+                key={series.id}
+                rating={series.vote_average}
+                date={
+                  series.first_air_date
+                    ? series.first_air_date
+                    : "To Be Announced"
+                }
+                votes={series.vote_count}
+                img={series.poster_path}
+                id={series.id}
+              />
+            ))}
+          </Serieswrapper>
 
-      <Section>
-        <h1>Popular Movies</h1>
-        <Cardwrapper>
-          {popularSeries.map((movie) => (
-            <MovieCards
-              name={movie.title}
-              key={movie.id}
-              rating={movie.vote_average}
-              date={movie.release_date ? movie.release_date : "To Be Announced"}
-              votes={movie.vote_count}
-              img={movie.poster_path}
-              id={movie.id}
-            />
-          ))}
-        </Cardwrapper>
-
-        <h1>Trending</h1>
-        <Cardwrapper>
-          {trendingSeries.map((movie) => (
-            <MovieCards
-              name={movie.title ? movie.title : movie.original_name}
-              key={movie.id}
-              rating={movie.vote_average}
-              date={movie.release_date ? movie.release_date : "To Be Announced"}
-              votes={movie.vote_count}
-              img={movie.poster_path}
-              id={movie.id}
-            />
-          ))}
-        </Cardwrapper>
-      </Section>
-    </div>
+          <h1>Trending Series</h1>
+          <Serieswrapper>
+            {trendingSeries.map((data) => (
+              <SeriesCard
+                name={data.title ? data.title : data.original_name}
+                key={data.id}
+                rating={data.vote_average}
+                date={data.release_date ? data.release_date : "To Be Announced"}
+                votes={data.vote_count}
+                img={data.poster_path}
+                id={data.id}
+              />
+            ))}
+          </Serieswrapper>
+        </Section>
+      )}
+    </>
   );
 };
 const Section = styled(motion.div)`
@@ -79,7 +84,7 @@ const Section = styled(motion.div)`
   }
 `;
 
-const Cardwrapper = styled(motion.div)`
+const Serieswrapper = styled(motion.div)`
   padding: 2rem;
   min-height: 90vh;
   display: grid;
@@ -106,4 +111,4 @@ const Cardwrapper = styled(motion.div)`
   }
 `;
 
-export default Home;
+export default TvSeries;

@@ -16,31 +16,36 @@ const DetailData = () => {
       history.push("/");
     }
   };
-  const { detail, trailers, isLoading } = useSelector((state) => state.detail);
+
+  const { detailSeries, trailers, isLoading } = useSelector(
+    (state) => state.detailtv
+  );
   return (
     <>
       {!isLoading && (
         <CardFull className="fix" onClick={exitdetailhandler}>
           <CardContent>
             <div className="title">
-              <h1>{detail.original_title}</h1>
+              <h1>{detailSeries.original_name}</h1>
             </div>
-            <h1>Audience : {detail.audult ? "Mature" : "UA"}</h1>
+            <h1>Audience : {detailSeries.audult ? "Mature" : "UA"}</h1>
             <div className="image-movie">
               <div className="rating">
-                <h4>{detail.vote_average}</h4>
+                <h4>{detailSeries.vote_average}</h4>
                 <h4>
                   <span>votes</span>
-                  {detail.vote_count}
+                  {detailSeries.vote_count}
                 </h4>
               </div>
               <img
-                src={"https://image.tmdb.org/t/p/w342" + detail.poster_path}
+                src={
+                  "https://image.tmdb.org/t/p/w342" + detailSeries.poster_path
+                }
                 alt="poster"
               />
             </div>
             <div className="genres">
-              {detail.genres.map((data) => (
+              {detailSeries.genres.map((data) => (
                 <div key={data.id}>
                   <h3>{data.name}</h3>
                 </div>
@@ -49,7 +54,7 @@ const DetailData = () => {
 
             <div className="description">
               <h1>Summary</h1>
-              <p>{detail.overview}</p>
+              <p>{detailSeries.overview}</p>
             </div>
             <div className="trailer">
               {trailers.map((data) => (
