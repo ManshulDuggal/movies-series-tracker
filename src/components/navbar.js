@@ -67,7 +67,7 @@ const NavWrapper = styled(motion.div)`
       font-family: "Parisienne", cursive;
     }
   }
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 600px) {
     nav {
       display: block;
       text-align: center;

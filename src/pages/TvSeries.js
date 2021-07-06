@@ -113,6 +113,17 @@ const Serieswrapper = styled(motion.div)`
       margin-right: 30%;
     }
   }
+
+  @media only screen and (max-width: 450px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 3fr));
+
+    h2,
+    h1,
+    h3,
+    h4 {
+      font-size: 0.6rem;
+    }
+  }
 `;
 
 export default TvSeries;

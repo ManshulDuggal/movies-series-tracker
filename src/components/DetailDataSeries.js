@@ -31,7 +31,11 @@ const DetailData = () => {
             <h1>Audience : {detailSeries.audult ? "Mature" : "UA"}</h1>
             <div className="image-movie">
               <div className="rating">
-                <h4>{detailSeries.vote_average?detailSeries.vote_average:"N/A"}</h4>
+                <h4>
+                  {detailSeries.vote_average
+                    ? detailSeries.vote_average
+                    : "N/A"}
+                </h4>
                 <h4>
                   <span>votes</span>
                   {detailSeries.vote_count}
@@ -111,10 +115,9 @@ const CardContent = styled(motion.div)`
     display: flex;
     justify-content: space-evenly;
 
-    span{
-      margin:0rem 1rem;
+    span {
+      margin: 0rem 1rem;
     }
-}
   }
 
   img {
@@ -128,17 +131,15 @@ const CardContent = styled(motion.div)`
     padding: 1rem;
   }
 
-  .description{
- 
-
-
-  p {
-    font-family: "Raleway", sans-serif;
-    font-weight: bolder;
-    width: 50%;
-    margin: auto;
-    padding: 4rem;
-    text-align: justify;
+  .description {
+    p {
+      font-family: "Raleway", sans-serif;
+      font-weight: bolder;
+      width: 50%;
+      margin: auto;
+      padding: 4rem;
+      text-align: justify;
+    }
   }
 
   .trailer {
@@ -149,25 +150,57 @@ const CardContent = styled(motion.div)`
     }
   }
 
-}
-
-  .genres{
- 
-
+  .genres {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    padding:2rem;
+    padding: 2rem;
     flex-wrap: wrap;
     flex-direction: row;
 
-    h3{
+    h3 {
       font-family: "Francois One", sans-serif;
-    font-size: 0.7rem;
-    padding: 1rem;
+      font-size: 0.7rem;
+      padding: 1rem;
     }
+  }
+  @media only screen and (max-width: 600px) {
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-size: 0.5rem;
+    }
+    .genres {
+      display: block;
+      padding: 0.2rem;
+      h3 {
+        font-size: 0.5rem;
+        padding: 0.4rem;
+      }
+    }
+    .trailer {
+      width: 100%;
+      padding: 1rem;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
 
- 
-  
+      h1 {
+        padding: 0.6rem;
+      }
+    }
+    .description {
+      padding: 2rem;
+      p {
+        font-size: 0.4rem;
+        padding: 0;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
 `;
 export default DetailData;
