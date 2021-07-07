@@ -12,6 +12,7 @@ import { getDetail } from "../actions/detailsAction";
 import { Link } from "react-router-dom";
 const MovieCards = ({ name, rating, date, votes, img, id }) => {
   //load detail handler
+  const StringToInt = id.toString();
 
   const dispatch = useDispatch();
   const detailHandler = () => {
@@ -21,7 +22,7 @@ const MovieCards = ({ name, rating, date, votes, img, id }) => {
 
   return (
     <div>
-      <Wrapper>
+      <Wrapper layoutId={StringToInt}>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -35,17 +36,16 @@ const MovieCards = ({ name, rating, date, votes, img, id }) => {
 
             <h3>{date}</h3> */}
 
-            <div className="poster"></div>
-
-            <img
-              src={"https://image.tmdb.org/t/p/w342" + img}
-              alt={notFound}
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = { notFound };
-              }}
-            />
-
+            <div className="poster">
+              <img
+                src={"https://image.tmdb.org/t/p/w342" + img}
+                alt={notFound}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = { notFound };
+                }}
+              />
+            </div>
             <h4>
               votes:
               <span>{votes}</span>
@@ -68,6 +68,7 @@ const Card = styled(motion.div)`
   cursor: pointer;
 
   img {
+    display: block;
     width: 100%;
     object-fit: cover;
   }

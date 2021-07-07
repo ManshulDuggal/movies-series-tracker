@@ -2,11 +2,11 @@ import React from "react";
 //styled components
 import styled from "styled-components";
 //animation
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 //redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
-const DetailData = () => {
+const DetailData = ({ pathVar2 }) => {
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
@@ -24,7 +24,7 @@ const DetailData = () => {
     <>
       {!isLoading && (
         <CardFull className="fix" onClick={exitdetailhandler}>
-          <CardContent>
+          <CardContent layoutId={pathVar2}>
             <div className="title">
               <h1>{detailSeries.original_name}</h1>
             </div>
@@ -41,7 +41,8 @@ const DetailData = () => {
                   {detailSeries.vote_count}
                 </h4>
               </div>
-              <img
+              <motion.img
+                layoutId={`image ${pathVar2}`}
                 src={
                   "https://image.tmdb.org/t/p/w342" + detailSeries.poster_path
                 }

@@ -11,7 +11,7 @@ import SeriesCard from "../components/Series";
 import DetailData from "../components/DetailDataSeries";
 import styled from "styled-components";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 import { useLocation } from "react-router";
 const TvSeries = () => {
@@ -31,56 +31,62 @@ const TvSeries = () => {
   console.log(pathVar2);
   return (
     <>
-      {pathVar2 && <DetailData />}
-      {!isLoading && (
-        <Section>
-          <h1>Popular Series</h1>
-          <Serieswrapper>
-            {popularSeries.map((series) => (
-              <SeriesCard
-                name={series.name}
-                key={series.id}
-                rating={series.vote_average}
-                date={
-                  series.first_air_date
-                    ? series.first_air_date
-                    : "To Be Announced"
-                }
-                votes={series.vote_count}
-                img={series.poster_path ? series.poster_path : { notFound }}
-                id={series.id}
-              />
-            ))}
-          </Serieswrapper>
+      <AnimateSharedLayout>
+        <AnimatePresence>
+          {pathVar2 && <DetailData pathVar2={pathVar2} />}
+        </AnimatePresence>
+        {!isLoading && (
+          <Section>
+            <h1>Popular Series</h1>
+            <Serieswrapper>
+              {popularSeries.map((series) => (
+                <SeriesCard
+                  name={series.name}
+                  key={series.id}
+                  rating={series.vote_average}
+                  date={
+                    series.first_air_date
+                      ? series.first_air_date
+                      : "To Be Announced"
+                  }
+                  votes={series.vote_count}
+                  img={series.poster_path ? series.poster_path : { notFound }}
+                  id={series.id}
+                />
+              ))}
+            </Serieswrapper>
 
-          <h1>Trending Series</h1>
-          <Serieswrapper>
-            {trendingSeries.map((data) => (
-              <SeriesCard
-                name={data.title ? data.title : data.original_name}
-                key={data.id}
-                rating={data.vote_average}
-                date={
-                  data.first_air_date ? data.first_air_date : "To Be Announced"
-                }
-                votes={data.vote_count}
-                img={data.poster_path ? data.poster_path : { notFound }}
-                id={data.id}
-              />
-            ))}
-          </Serieswrapper>
-        </Section>
-      )}
+            <h1>Trending Series</h1>
+            <Serieswrapper>
+              {trendingSeries.map((data) => (
+                <SeriesCard
+                  name={data.title ? data.title : data.original_name}
+                  key={data.id}
+                  rating={data.vote_average}
+                  date={
+                    data.first_air_date
+                      ? data.first_air_date
+                      : "To Be Announced"
+                  }
+                  votes={data.vote_count}
+                  img={data.poster_path ? data.poster_path : { notFound }}
+                  id={data.id}
+                />
+              ))}
+            </Serieswrapper>
+          </Section>
+        )}
+      </AnimateSharedLayout>
     </>
   );
 };
 const Section = styled(motion.div)`
   text-align: center;
   h1 {
-    background: radial-gradient(#3805053e, #05082988);
+    background: radial-gradient(#d8b5b53d, #2e141485);
     width: 40%;
-    border-radius: 2%;
-    color: white;
+    border-radius: 2rem;
+    color: black;
     font-weight: bolder;
     padding: 1rem 0rem;
     margin: 2rem auto;
@@ -93,7 +99,7 @@ const Serieswrapper = styled(motion.div)`
   min-height: 90vh;
   display: grid;
   grid-gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
   h2 {
     font-weight: bolder;

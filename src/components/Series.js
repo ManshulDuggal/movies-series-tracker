@@ -10,6 +10,7 @@ import { getDetailSeries } from "../actions/detailstvaction";
 //link
 import { Link } from "react-router-dom";
 const SeriesCards = ({ name, rating, date, votes, img, id }) => {
+  const StringToInt = id.toString();
   const dispatch = useDispatch();
   const detailHandler = () => {
     document.body.style.overflow = "hidden";
@@ -32,10 +33,9 @@ const SeriesCards = ({ name, rating, date, votes, img, id }) => {
 
             <h3>{date}</h3> */}
 
-            <div className="poster"></div>
-
-            <img src={"https://image.tmdb.org/t/p/w342" + img} alt="" />
-
+            <div className="poster">
+              <img src={"https://image.tmdb.org/t/p/w342" + img} alt="" />
+            </div>
             <h4>
               votes:
               <span>{votes}</span>
@@ -58,6 +58,8 @@ const Card = styled(motion.div)`
   cursor: pointer;
 
   img {
+    display: block;
+    overflow: hidden;
     width: 100%;
     object-fit: cover;
   }

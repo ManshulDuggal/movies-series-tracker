@@ -1,12 +1,15 @@
 import React from "react";
 //styled components
 import styled from "styled-components";
+//imnporting images
+import starEmpty from "../images/starEmpty.png";
+import starFull from "../images/starFull.png";
 //animation
 import { motion } from "framer-motion";
 //redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
-const DetailData = () => {
+const DetailData = ({ pathVar }) => {
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
@@ -16,25 +19,44 @@ const DetailData = () => {
       history.push("/");
     }
   };
+
+  //rating
+  const getRating = () => {
+    const stars = [];
+    const rating = Math.floor(detail.vote_average);
+
+    for (let i = 1; i <= 10; i++) {
+      if (i <= rating) {
+        stars.push(<img alt="star" key={i} src={starFull}></img>);
+      } else {
+        stars.push(<img alt="star" key={i} src={starEmpty}></img>);
+      }
+    }
+    return stars;
+  };
+
   const { detail, trailers, isLoading } = useSelector((state) => state.detail);
   return (
     <>
       {!isLoading && (
         <CardFull className="fix" onClick={exitdetailhandler}>
-          <CardContent>
+          <CardContent layoutId={`title ${pathVar}`}>
             <div className="title">
               <h1>{detail.original_title}</h1>
             </div>
             <h1>Audience : {detail.adult ? "Mature" : "UA"}</h1>
             <div className="image-movie">
               <div className="rating">
-                <h4>{detail.vote_average}</h4>
-                <h4>
+                <div className="star">{getRating()}</div>
+
+                {/* <h4>
                   <span>votes</span>
                   {detail.vote_count}
-                </h4>
+                </h4> */}
               </div>
-              <img
+
+              <motion.img
+                layoutId={`image ${pathVar}`}
                 src={"https://image.tmdb.org/t/p/w342" + detail.poster_path}
                 alt="poster"
               />
@@ -93,13 +115,13 @@ const CardContent = styled(motion.div)`
   text-align: center;
   color: white;
   padding: 2rem 2rem;
-  background: radial-gradient(#4e0e0e, #000000);
+  background: radial-gradient(#030303, #2e0202);
   width: 80%;
   margin: auto;
 
   .rating {
     display: flex;
-    
+
     width: 30%;
     margin: auto;
     justify-content: space-between;
@@ -151,6 +173,25 @@ const CardContent = styled(motion.div)`
       padding: 1rem;
     }
   }
+  .rating {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    background: #ffffff3d;
+    border-radius: 2rem;
+    margin: 4rem auto;
+  }
+  .star {
+    z-index: 11;
+    display: flex;
+    padding: 2rem;
+
+    img {
+      width: 30px;
+      padding: 0rem;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     h1,
     h2,
