@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 //animations
-import { CardHover } from "../anim/Anim";
+import { CardHover, CardLoadAll } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetailSeries } from "../actions/detailstvaction";
@@ -25,6 +25,9 @@ const SeriesCards = ({ name, rating, date, votes, img, id }) => {
           style={{ textDecoration: "none", color: "black" }}
         >
           <Card
+            variants={CardLoadAll}
+            animate="visible"
+            initial="hidden"
             variants={CardHover}
             whileHover="whileHover"
             onClick={detailHandler}

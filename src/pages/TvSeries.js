@@ -10,8 +10,8 @@ import { seriesAction } from "../actions/seriesAction";
 import SeriesCard from "../components/Series";
 import DetailData from "../components/DetailDataSeries";
 import styled from "styled-components";
-
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { CardLoad, CardLoadAll } from "../anim/Anim";
+import { motion } from "framer-motion";
 
 import { useLocation } from "react-router";
 const TvSeries = () => {
@@ -31,52 +31,51 @@ const TvSeries = () => {
   console.log(pathVar2);
   return (
     <>
-      <AnimateSharedLayout>
-        <AnimatePresence>
-          {pathVar2 && <DetailData pathVar2={pathVar2} />}
-        </AnimatePresence>
-        {!isLoading && (
-          <Section>
-            <h1>Popular Series</h1>
-            <Serieswrapper>
-              {popularSeries.map((series) => (
-                <SeriesCard
-                  name={series.name}
-                  key={series.id}
-                  rating={series.vote_average}
-                  date={
-                    series.first_air_date
-                      ? series.first_air_date
-                      : "To Be Announced"
-                  }
-                  votes={series.vote_count}
-                  img={series.poster_path ? series.poster_path : { notFound }}
-                  id={series.id}
-                />
-              ))}
-            </Serieswrapper>
+      {pathVar2 && <DetailData />}
 
-            <h1>Trending Series</h1>
-            <Serieswrapper>
-              {trendingSeries.map((data) => (
-                <SeriesCard
-                  name={data.title ? data.title : data.original_name}
-                  key={data.id}
-                  rating={data.vote_average}
-                  date={
-                    data.first_air_date
-                      ? data.first_air_date
-                      : "To Be Announced"
-                  }
-                  votes={data.vote_count}
-                  img={data.poster_path ? data.poster_path : { notFound }}
-                  id={data.id}
-                />
-              ))}
-            </Serieswrapper>
-          </Section>
-        )}
-      </AnimateSharedLayout>
+      {!isLoading && (
+        <Section>
+          <h1>Popular Series</h1>
+          <Serieswrapper
+            variants={CardLoadAll}
+            animate="visible"
+            initial="hidden"
+          >
+            {popularSeries.map((series) => (
+              <SeriesCard
+                name={series.name}
+                key={series.id}
+                rating={series.vote_average}
+                date={
+                  series.first_air_date
+                    ? series.first_air_date
+                    : "To Be Announced"
+                }
+                votes={series.vote_count}
+                img={series.poster_path ? series.poster_path : { notFound }}
+                id={series.id}
+              />
+            ))}
+          </Serieswrapper>
+
+          <h1>Trending Series</h1>
+          <Serieswrapper variants={CardLoad} animate="visible" initial="hidden">
+            {trendingSeries.map((data) => (
+              <SeriesCard
+                name={data.title ? data.title : data.original_name}
+                key={data.id}
+                rating={data.vote_average}
+                date={
+                  data.first_air_date ? data.first_air_date : "To Be Announced"
+                }
+                votes={data.vote_count}
+                img={data.poster_path ? data.poster_path : { notFound }}
+                id={data.id}
+              />
+            ))}
+          </Serieswrapper>
+        </Section>
+      )}
     </>
   );
 };
@@ -87,10 +86,12 @@ const Section = styled(motion.div)`
     width: 40%;
     border-radius: 2rem;
     color: black;
-    font-weight: bolder;
+
     padding: 1rem 0rem;
     margin: 2rem auto;
     font-size: 1.5rem;
+    font-family: "Anonymous Pro", monospace;
+    font-weight: 700;
   }
 `;
 

@@ -5,7 +5,8 @@ import styled from "styled-components";
 import starEmpty from "../images/starEmpty.png";
 import starFull from "../images/starFull.png";
 //animation
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { CardLoad } from "../anim/Anim";
 //redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
@@ -39,7 +40,14 @@ const DetailData = ({ pathVar }) => {
   return (
     <>
       {!isLoading && (
-        <CardFull className="fix" onClick={exitdetailhandler}>
+        <CardFull
+          variants={CardLoad}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="fix"
+          onClick={exitdetailhandler}
+        >
           <CardContent layoutId={`title ${pathVar}`}>
             <div className="title">
               <h1>{detail.original_title}</h1>

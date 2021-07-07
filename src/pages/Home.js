@@ -8,9 +8,10 @@ import MovieCards from "../components/Movies";
 import DetailData from "../components/DetailData";
 import styled from "styled-components";
 
-import { AnimatePresence, motion, AnimateSharedLayout } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { useLocation } from "react-router";
+import { CardLoad, CardLoadAll } from "../anim/Anim";
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,52 +28,44 @@ const Home = () => {
   const pathVar = location.pathname.split("/")[2];
   console.log(pathVar + "this is the path vars");
   return (
-    <AnimateSharedLayout>
-      <div>
-        <Section />
+    <div>
+      <Section />
 
-        <AnimatePresence>
-          {pathVar && <DetailData pathVar={pathVar} />}
-        </AnimatePresence>
-        <Section>
-          <h1>Popular Movies</h1>
+      {pathVar && <DetailData />}
+      <Section>
+        <h1>Popular Movies</h1>
 
-          <Cardwrapper>
-            {popularMovies.map((movie) => (
-              <MovieCards
-                name={movie.title}
-                key={movie.id}
-                rating={movie.vote_average}
-                date={
-                  movie.release_date ? movie.release_date : "To Be Announced"
-                }
-                votes={movie.vote_count}
-                img={movie.poster_path}
-                id={movie.id}
-              />
-            ))}
-          </Cardwrapper>
-          <div className="heading">
-            <h1>Trending</h1>
-          </div>
-          <Cardwrapper>
-            {trendingMovies.map((movie) => (
-              <MovieCards
-                name={movie.title ? movie.title : movie.original_name}
-                key={movie.id}
-                rating={movie.vote_average}
-                date={
-                  movie.release_date ? movie.release_date : "To Be Announced"
-                }
-                votes={movie.vote_count}
-                img={movie.poster_path}
-                id={movie.id}
-              />
-            ))}
-          </Cardwrapper>
-        </Section>
-      </div>
-    </AnimateSharedLayout>
+        <Cardwrapper variants={CardLoadAll} animate="visible" initial="hidden">
+          {popularMovies.map((movie) => (
+            <MovieCards
+              name={movie.title}
+              key={movie.id}
+              rating={movie.vote_average}
+              date={movie.release_date ? movie.release_date : "To Be Announced"}
+              votes={movie.vote_count}
+              img={movie.poster_path}
+              id={movie.id}
+            />
+          ))}
+        </Cardwrapper>
+        <div className="heading">
+          <h1>Trending</h1>
+        </div>
+        <Cardwrapper variants={CardLoad} initial="hidden" animate="visible">
+          {trendingMovies.map((movie) => (
+            <MovieCards
+              name={movie.title ? movie.title : movie.original_name}
+              key={movie.id}
+              rating={movie.vote_average}
+              date={movie.release_date ? movie.release_date : "To Be Announced"}
+              votes={movie.vote_count}
+              img={movie.poster_path}
+              id={movie.id}
+            />
+          ))}
+        </Cardwrapper>
+      </Section>
+    </div>
   );
 };
 const Section = styled(motion.div)`
@@ -82,11 +75,11 @@ const Section = styled(motion.div)`
     width: 40%;
     border-radius: 2rem;
     color: black;
-    font-weight: bolder;
+    font-family: "Anonymous Pro", monospace;
+    font-weight: 700;
     padding: 1rem 0rem;
     margin: 2rem auto;
     font-size: 1.5rem;
-
   }
 `;
 

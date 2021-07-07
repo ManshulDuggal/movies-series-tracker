@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import notFound from "../images/notFound.png";
 //animations
-import { CardHover } from "../anim/Anim";
+import { CardHover, CardLoadAll } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetail } from "../actions/detailsAction";
@@ -22,7 +22,7 @@ const MovieCards = ({ name, rating, date, votes, img, id }) => {
 
   return (
     <div>
-      <Wrapper layoutId={StringToInt}>
+      <Wrapper variants={CardLoadAll} animate="visible" initial="hidden">
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -58,7 +58,7 @@ const MovieCards = ({ name, rating, date, votes, img, id }) => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   cursor: "pointer";
 `;
 
