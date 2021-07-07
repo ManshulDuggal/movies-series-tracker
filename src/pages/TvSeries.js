@@ -36,11 +36,7 @@ const TvSeries = () => {
       {!isLoading && (
         <Section>
           <h1>Popular Series</h1>
-          <Serieswrapper
-            variants={CardLoadAll}
-            animate="visible"
-            initial="hidden"
-          >
+          <Serieswrapper>
             {popularSeries.map((series) => (
               <SeriesCard
                 name={series.name}
