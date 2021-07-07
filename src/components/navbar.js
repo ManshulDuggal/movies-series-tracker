@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Logo from "../images/logo.png";
 const Nav = () => {
   return (
     <NavWrapper>
       <nav>
         <div className="logo">
           <Link to="/">
-            <h1>MoviesSeries</h1>
+            <img src={Logo} alt="" />
           </Link>
         </div>
         <div className="nav-items">
@@ -62,10 +63,14 @@ const NavWrapper = styled(motion.div)`
     }
   }
   .logo {
+    img {
+      width: 5%;
+    }
+    /* 
     h1 {
       color: #ffffff;
       font-family: "Parisienne", cursive;
-    }
+    } */
   }
   @media only screen and (max-width: 600px) {
     nav {

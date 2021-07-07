@@ -13,7 +13,7 @@ const DetailData = () => {
     console.log(element);
     if (element.classList.contains("fix")) {
       document.body.style.overflow = "auto";
-      history.push("/series");
+      history.push("/");
     }
   };
 
@@ -113,8 +113,10 @@ const CardContent = styled(motion.div)`
 
   .rating {
     display: flex;
-    justify-content: space-evenly;
 
+    width: 30%;
+    margin: auto;
+    justify-content: space-between;
     span {
       margin: 0rem 1rem;
     }
