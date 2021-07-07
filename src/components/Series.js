@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { getDetailSeries } from "../actions/detailstvaction";
 //link
 import { Link } from "react-router-dom";
-const SeriesCards = ({ name, rating, date, votes, img, id }) => {
+const SeriesCards = ({ name, rating,  votes, img, id }) => {
   const StringToInt = id.toString();
   const dispatch = useDispatch();
   const detailHandler = () => {
