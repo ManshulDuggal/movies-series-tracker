@@ -16,7 +16,7 @@ const MovieCards = ({ name, rating, date, votes, img, id }) => {
 
   const dispatch = useDispatch();
   const detailHandler = () => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "auto";
     dispatch(getDetail(id));
   };
 

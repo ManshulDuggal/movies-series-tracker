@@ -13,7 +13,7 @@ const SeriesCards = ({ name, rating, date, votes, img, id }) => {
   const StringToInt = id.toString();
   const dispatch = useDispatch();
   const detailHandler = () => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "auto";
     dispatch(getDetailSeries(id));
   };
 
