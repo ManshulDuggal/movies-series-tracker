@@ -127,17 +127,6 @@ const CardContent = styled(motion.div)`
   width: 80%;
   margin: auto;
 
-  .rating {
-    display: flex;
-
-    width: 30%;
-    margin: auto;
-    justify-content: space-between;
-    span {
-      margin: 0rem 1rem;
-    }
-  }
-
   img {
     border-radius: 2%;
     padding: 2rem;
@@ -201,11 +190,23 @@ const CardContent = styled(motion.div)`
   }
 
   @media only screen and (max-width: 600px) {
+    .rating {
+      display: flex;
+
+      width: 90%;
+      margin: auto;
+      justify-content: center;
+
+      img {
+        width: 15px;
+      }
+    }
+
     h1,
     h2,
     h3,
     h4 {
-      font-size: 0.5rem;
+      font-size: 0.7rem;
     }
     .genres {
       display: block;
@@ -229,9 +230,12 @@ const CardContent = styled(motion.div)`
     }
     .description {
       padding: 2rem;
+
       p {
-        font-size: 0.4rem;
+        font-size: 0.6rem;
         padding: 0;
+        text-align: justify;
+        width: 100%;
       }
     }
     img {

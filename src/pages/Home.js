@@ -35,7 +35,7 @@ const Home = () => {
       <Section>
         <h1>Popular Movies</h1>
 
-        <Cardwrapper variants={CardLoadAll} animate="visible" initial="hidden">
+        <Cardwrapper>
           {popularMovies.map((movie) => (
             <MovieCards
               name={movie.title}
@@ -51,7 +51,7 @@ const Home = () => {
         <div className="heading">
           <h1>Trending</h1>
         </div>
-        <Cardwrapper variants={CardLoad} initial="hidden" animate="visible">
+        <Cardwrapper>
           {trendingMovies.map((movie) => (
             <MovieCards
               name={movie.title ? movie.title : movie.original_name}

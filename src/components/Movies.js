@@ -22,7 +22,7 @@ const MovieCards = ({ name, rating, date, votes, img, id }) => {
 
   return (
     <div>
-      <Wrapper variants={CardLoadAll} animate="visible" initial="hidden">
+      <Wrapper>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}

@@ -25,9 +25,6 @@ const SeriesCards = ({ name, rating, date, votes, img, id }) => {
           style={{ textDecoration: "none", color: "black" }}
         >
           <Card
-            variants={CardLoadAll}
-            animate="visible"
-            initial="hidden"
             variants={CardHover}
             whileHover="whileHover"
             onClick={detailHandler}

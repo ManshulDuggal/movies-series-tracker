@@ -59,7 +59,7 @@ const TvSeries = () => {
           </Serieswrapper>
 
           <h1>Trending Series</h1>
-          <Serieswrapper variants={CardLoad} animate="visible" initial="hidden">
+          <Serieswrapper>
             {trendingSeries.map((data) => (
               <SeriesCard
                 name={data.title ? data.title : data.original_name}

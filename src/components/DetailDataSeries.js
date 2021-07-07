@@ -1,6 +1,9 @@
 import React from "react";
 //styled components
 import styled from "styled-components";
+//images
+import starEmpty from "../images/starEmpty.png";
+import starFull from "../images/starFull.png";
 //animation
 import { motion, AnimatePresence } from "framer-motion";
 //redux
@@ -16,6 +19,20 @@ const DetailData = ({ pathVar2 }) => {
       history.push("/");
     }
   };
+  //rating
+  const getRating = () => {
+    const stars = [];
+    const rating = Math.floor(detailSeries.vote_average);
+
+    for (let i = 1; i <= 10; i++) {
+      if (i <= rating) {
+        stars.push(<img alt="star" key={i} src={starFull}></img>);
+      } else {
+        stars.push(<img alt="star" key={i} src={starEmpty}></img>);
+      }
+    }
+    return stars;
+  };
 
   const { detailSeries, trailers, isLoading } = useSelector(
     (state) => state.detailtv
@@ -29,26 +46,24 @@ const DetailData = ({ pathVar2 }) => {
               <h1>{detailSeries.original_name}</h1>
             </div>
             <h1>Audience : {detailSeries.audult ? "Mature" : "UA"}</h1>
-            <div className="image-movie">
-              <div className="rating">
-                <h4>
-                  {detailSeries.vote_average
+            {/* <div className="image-movie"> */}
+            <div className="rating">
+              {/* {detailSeries.vote_average
                     ? detailSeries.vote_average
-                    : "N/A"}
-                </h4>
-                <h4>
+                    : "N/A"} */}
+
+              <div className="star">{getRating()}</div>
+
+              {/* <h4>
                   <span>votes</span>
                   {detailSeries.vote_count}
-                </h4>
-              </div>
-              <motion.img
-                layoutId={`image ${pathVar2}`}
-                src={
-                  "https://image.tmdb.org/t/p/w342" + detailSeries.poster_path
-                }
-                alt="poster"
-              />
+                </h4> */}
             </div>
+            <motion.img
+              src={"https://image.tmdb.org/t/p/w342" + detailSeries.poster_path}
+              alt="poster"
+            />
+            {/* </div> */}
             <div className="genres">
               {detailSeries.genres.map((data) => (
                 <div key={data.id}>
@@ -114,12 +129,20 @@ const CardContent = styled(motion.div)`
 
   .rating {
     display: flex;
+    justify-content: center;
+    width: 40%;
+    background: #ffffff3d;
+    border-radius: 2rem;
+    margin: 4rem auto;
+  }
+  .star {
+    z-index: 11;
+    display: flex;
+    padding: 2rem;
 
-    width: 30%;
-    margin: auto;
-    justify-content: space-between;
-    span {
-      margin: 0rem 1rem;
+    img {
+      width: 30px;
+      padding: 0rem;
     }
   }
 
@@ -168,11 +191,23 @@ const CardContent = styled(motion.div)`
     }
   }
   @media only screen and (max-width: 600px) {
+    .rating {
+      display: flex;
+
+      width: 90%;
+      margin: auto;
+      justify-content: center;
+
+      img {
+        width: 15px;
+      }
+    }
+
     h1,
     h2,
     h3,
     h4 {
-      font-size: 0.5rem;
+      font-size: 0.7rem;
     }
     .genres {
       display: block;
@@ -197,8 +232,10 @@ const CardContent = styled(motion.div)`
     .description {
       padding: 2rem;
       p {
-        font-size: 0.4rem;
+        font-size: 0.6rem;
         padding: 0;
+        text-align: justify;
+        width: 100%;
       }
     }
     img {
