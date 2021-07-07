@@ -41,18 +41,18 @@ export const CardLoadAll = {
     opacity: 1,
 
     transition: {
-      duration: 1,
+      duration: 0.2,
       ease: "easeOut",
       staggerChildren: 0.6,
-      when: "afterChildren",
+      when: "beforeChildren",
     },
   },
   hidden: {
-    opacity: 0,
+    opacity: 1,
   },
 
   exit: {
-    opacity: 0,
+    opacity: 1,
 
     transition: {
       duration: 0.5,
