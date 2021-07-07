@@ -25,7 +25,7 @@ const DetailData = () => {
             <div className="title">
               <h1>{detail.original_title}</h1>
             </div>
-            <h1>Audience : {detail.audult ? "Mature" : "UA"}</h1>
+            <h1>Audience : {detail.adult ? "Mature" : "UA"}</h1>
             <div className="image-movie">
               <div className="rating">
                 <h4>{detail.vote_average}</h4>

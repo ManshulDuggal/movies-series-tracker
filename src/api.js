@@ -1,9 +1,9 @@
 const MOVIE_KEY = process.env.REACT_APP_MOVIE_API;
 const base_url = "https://api.themoviedb.org/";
-const Popular = `3/movie/popular?api_key=${MOVIE_KEY}&language=en-US&page=1`;
-const PopularSeries = `3/tv/popular?api_key=${MOVIE_KEY}&language=en-US&page=1`;
+const Popular = `3/discover/movie?api_key=${MOVIE_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_watch_monetization_types=flatrate`;
+const PopularSeries = `3/tv/popular?api_key=${MOVIE_KEY}&language=en-US&page=2`;
 
-const Trending = `3/trending/all/week?api_key=${MOVIE_KEY}`;
+const Trending = `3/trending/movie/day?api_key=${MOVIE_KEY}`;
 const TrendingSeries = `3/trending/tv/week?api_key=${MOVIE_KEY}`;
 
 export const popularMovies = () => `${base_url}${Popular}`;

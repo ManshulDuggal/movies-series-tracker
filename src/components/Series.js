@@ -28,9 +28,9 @@ const SeriesCards = ({ name, rating, date, votes, img, id }) => {
             whileHover="whileHover"
             onClick={detailHandler}
           >
-            <h2>{name}</h2>
+            {/* <h2>{name}</h2>
 
-            <h3>{date}</h3>
+            <h3>{date}</h3> */}
 
             <div className="poster"></div>
 
