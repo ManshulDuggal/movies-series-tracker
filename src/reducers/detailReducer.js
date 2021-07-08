@@ -1,7 +1,7 @@
 const initState = {
   detail: { genres: [] },
   trailers: [],
-
+  reviews: [],
   isLoading: true,
 };
 
@@ -10,7 +10,7 @@ const detailReducer = (state = initState, action) => {
     case "GET_DETAIL":
       return {
         ...state,
-
+        reviews: action.payload.reviews,
         detail: action.payload.detail,
         trailers: action.payload.trailers,
         isLoading: false,

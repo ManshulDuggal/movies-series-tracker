@@ -17,7 +17,6 @@ export const CardLoad = {
     transition: {
       duration: 0.5,
       ease: "easeOut",
-      when: "afterChildren",
     },
   },
   hidden: {
@@ -31,7 +30,6 @@ export const CardLoad = {
     transition: {
       duration: 0.5,
       ease: "easeOut",
-      when: "afterChildren",
     },
   },
 };
@@ -43,8 +41,6 @@ export const CardLoadAll = {
     transition: {
       duration: 0.2,
       ease: "easeOut",
-      staggerChildren: 0.6,
-      when: "beforeChildren",
     },
   },
   hidden: {
@@ -58,7 +54,6 @@ export const CardLoadAll = {
     transition: {
       duration: 0.5,
       ease: "easeOut",
-      when: "afterChildren",
     },
   },
 };

@@ -4,6 +4,8 @@ import styled from "styled-components";
 //imnporting images
 import starEmpty from "../images/starEmpty.png";
 import starFull from "../images/starFull.png";
+import Default from "../images/default.png";
+
 //animation
 import { motion, AnimatePresence } from "framer-motion";
 import { CardLoad } from "../anim/Anim";
@@ -21,6 +23,8 @@ const DetailData = ({ pathVar }) => {
     }
   };
 
+  //avatar
+
   //rating
   const getRating = () => {
     const stars = [];
@@ -28,15 +32,17 @@ const DetailData = ({ pathVar }) => {
 
     for (let i = 1; i <= 10; i++) {
       if (i <= rating) {
-        stars.push(<img alt="star" key={i} src={starFull}></img>);
-      } else {
         stars.push(<img alt="star" key={i} src={starEmpty}></img>);
+      } else {
+        stars.push(<img alt="star" key={i} src={starFull}></img>);
       }
     }
     return stars;
   };
 
-  const { detail, trailers, isLoading } = useSelector((state) => state.detail);
+  const { detail, trailers, isLoading, reviews } = useSelector(
+    (state) => state.detail
+  );
   return (
     <>
       {!isLoading && (
@@ -81,6 +87,23 @@ const DetailData = ({ pathVar }) => {
               <h1>Summary</h1>
               <p>{detail.overview}</p>
             </div>
+
+            <div className="reviews ">
+              {reviews.map((data) => (
+                <div className="wrapperR">
+                  <div className="reviews">
+                    <h2>{data.author}</h2>
+                    <h3>{data.created_at}</h3>
+                    <div className="avatar">
+                      <img src={Default} alt="avatar" />
+                    </div>
+
+                    <p> {data.content}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <div className="trailer">
               {trailers.map((data) => (
                 <div>
@@ -127,6 +150,37 @@ const CardContent = styled(motion.div)`
   width: 80%;
   margin: auto;
 
+  .wrapperR {
+    display: flex;
+    flex-direction: row;
+  }
+  .reviews {
+    padding: 2rem;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    h3 {
+      font-size: 0.8rem;
+    }
+    h2 {
+      font-size: 0.9rem;
+    }
+    p {
+      width: 20rem;
+      margin: auto;
+      font-size: 0.81rem;
+      text-align: justify;
+      height: 100px;
+      overflow-y: auto ;
+    }
+    .avatar {
+      img {
+        width: 19%;
+      }
+    }
+  }
   img {
     border-radius: 2%;
     padding: 2rem;

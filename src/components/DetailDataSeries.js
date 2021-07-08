@@ -28,9 +28,9 @@ const DetailData = ({ pathVar2 }) => {
 
     for (let i = 1; i <= 10; i++) {
       if (i <= rating) {
-        stars.push(<img alt="star" key={i} src={starFull}></img>);
-      } else {
         stars.push(<img alt="star" key={i} src={starEmpty}></img>);
+      } else {
+        stars.push(<img alt="star" key={i} src={starFull}></img>);
       }
     }
     return stars;
