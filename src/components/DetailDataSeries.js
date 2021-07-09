@@ -257,6 +257,7 @@ const CardContent = styled(motion.div)`
         padding: 0rem;
         text-align: center;
         width: 100%;
+        font-size: 0.6rem;
       }
       .avatar {
         img {

@@ -85,7 +85,7 @@ const DetailData = ({ pathVar }) => {
                 <div className="wrapperR">
                   <div className="reviews">
                     <h2>{data.author}</h2>
-                   
+
                     <div className="avatar">
                       <img src={Default} alt="avatar" />
                     </div>
@@ -255,6 +255,7 @@ const CardContent = styled(motion.div)`
         padding: 0rem;
         text-align: center;
         width: 100%;
+        font-size: 0.6rem;
       }
       .avatar {
         img {

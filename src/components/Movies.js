@@ -22,7 +22,6 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
   return (
     <div>
-        
       <Wrapper>
         <Link
           to={`/movie/${id}`}
