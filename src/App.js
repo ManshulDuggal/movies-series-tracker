@@ -11,18 +11,16 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
+      <Nav />
       <Route path="/" exact>
-        <Nav />
         <Home />
         <TvSeries />
       </Route>
       <Route path={["/movie/:id", "/movie"]} exact>
-        <Nav />
         <Home />
       </Route>
 
       <Route path={["/movie/:id", "/series"]} exact>
-        <Nav />
         <TvSeries />
       </Route>
     </div>

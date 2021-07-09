@@ -37,13 +37,15 @@ padding: 0px;
 }
 
 body{
-    background: radial-gradient(#e66465, #9198e5);
+    background: radial-gradient(#8f3cb0c8, #851fc4c5,#501270);
 
-    
+   
 }
+
 
 h2{
     font-family: 'Francois One', sans-serif;
+
    font-weight: lighter;
    
 }

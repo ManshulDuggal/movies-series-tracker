@@ -18,6 +18,8 @@ export const GetReviewMovie = (get_id) =>
 
 export const GetInfoSeries = (get_id) =>
   `${base_url}3/tv/${get_id}?api_key=${MOVIE_KEY}&language=en-US`;
+export const GetReviewSeries = (get_id) =>
+  `${base_url}3/tv/${get_id}/reviews?api_key=${MOVIE_KEY}&language=en-US`;
 
 export const GetTrailers = (get_id) =>
   `${base_url}3/movie/${get_id}/videos?api_key=${MOVIE_KEY}&language=en-US`;

@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Logo from "../images/logo.png";
+
+import { NavHover } from "../anim/Anim";
+
 const Nav = () => {
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeNavbarColor);
   return (
     <NavWrapper>
-      <nav>
+      <nav className={colorChange ? "navbar colorChange" : "navbar"}>
         <div className="logo">
           <Link to="/">
             <img src={Logo} alt="" />
@@ -15,10 +28,22 @@ const Nav = () => {
         <div className="nav-items">
           <ul>
             <Link to="/series">
-              <li>Tv Series</li>
+              <ListItem
+                variants={NavHover}
+                whileFocus="whileFocus"
+                whileHover="whileHover"
+              >
+                Series
+              </ListItem>
             </Link>
             <Link to="/movie">
-              <li>Movies</li>
+              <ListItem
+                variants={NavHover}
+                whileFocus="whileFocus"
+                whileHover="whileHover"
+              >
+                Movies
+              </ListItem>
             </Link>
           </ul>
         </div>
@@ -34,23 +59,30 @@ const NavWrapper = styled(motion.div)`
   top: 0%;
   z-index: 2;
 
+  .navbar {
+    background-color: transparent;
+  }
+
+  .navbar.colorChange {
+    background-color: #000000c7;
+  }
   a {
     text-decoration: none;
   }
   nav {
-    background: #0000008b;
     width: 100%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 1rem;
   }
   .nav-items {
     ul {
       display: flex;
       flex-direction: row;
-
+      justify-content: center;
       list-style: none;
-      li {
+      ListItem {
         font-weight: bolder;
         margin: 0rem 2rem;
         cursor: pointer;
@@ -64,7 +96,7 @@ const NavWrapper = styled(motion.div)`
   }
   .logo {
     img {
-      width: 5%;
+      width: 8%;
     }
     /* 
     h1 {
@@ -84,11 +116,20 @@ const NavWrapper = styled(motion.div)`
         display: block;
 
         list-style: none;
-        li {
+        ListItem {
           margin: 0rem 1rem;
         }
       }
     }
+  }
+`;
+
+const ListItem = styled(motion.div)`
+  font-weight: bolder;
+  margin: 0rem 2rem;
+  cursor: pointer;
+  &:hover {
+    color: #0bd692c0;
   }
 `;
 

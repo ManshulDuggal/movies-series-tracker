@@ -21,7 +21,7 @@ export const CardLoad = {
   },
   hidden: {
     opacity: 0,
-    y: 100,
+    y: -100,
   },
 
   exit: {
@@ -44,7 +44,7 @@ export const CardLoadAll = {
     },
   },
   hidden: {
-    y: 100,
+    y: -100,
     opacity: 1,
   },
 
@@ -55,5 +55,16 @@ export const CardLoadAll = {
       duration: 0.5,
       ease: "easeOut",
     },
+  },
+};
+
+export const NavHover = {
+  whileHover: {
+    scale: 1.1,
+  },
+  whileFocus: { scale: 1.2 },
+  transition: {
+    duration: 2,
+    ease: "easeOut",
   },
 };

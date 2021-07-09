@@ -4,6 +4,7 @@ import styled from "styled-components";
 //images
 import starEmpty from "../images/starEmpty.png";
 import starFull from "../images/starFull.png";
+import Default from "../images/default.png";
 //animation
 import { CardLoad } from "../anim/Anim";
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,10 +16,10 @@ const DetailData = ({ pathVar2 }) => {
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
-    console.log(element);
+
     if (element.classList.contains("fix")) {
       document.body.style.overflow = "auto";
-      history.push("/");
+      history.push("/series");
     }
   };
   //rating
@@ -36,20 +37,13 @@ const DetailData = ({ pathVar2 }) => {
     return stars;
   };
 
-  const { detailSeries, trailers, isLoading } = useSelector(
+  const { detailSeries, trailers, isLoading, reviews } = useSelector(
     (state) => state.detailtv
   );
   return (
     <>
       {!isLoading && (
-        <CardFull
-          className="fix"
-          onClick={exitdetailhandler}
-          variants={CardLoad}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
+        <CardFull className="fix" onClick={exitdetailhandler}>
           <CardContent>
             <div className="title">
               <h1>{detailSeries.original_name}</h1>
@@ -89,7 +83,23 @@ const DetailData = ({ pathVar2 }) => {
                   : "not available in api"}
               </p>
             </div>
-            <div className="trailer">
+
+            <div className="reviews">
+             
+              {reviews.map((data) => (
+                 
+                <>
+                <h1>Reviews</h1>
+                  <h2>{data.author}</h2>
+
+                  <div className="avatar">
+                    <img src={Default} alt="avatar" />
+                  </div>
+                  <p>{data.content}</p>
+                </>
+              ))}
+            </div>
+            <Trailer>
               {trailers.map((data) => (
                 <div>
                   <h1>{data.name} </h1>
@@ -104,7 +114,7 @@ const DetailData = ({ pathVar2 }) => {
                   ></iframe>
                 </div>
               ))}
-            </div>
+            </Trailer>
           </CardContent>
         </CardFull>
       )}
@@ -135,6 +145,37 @@ const CardContent = styled(motion.div)`
   background: radial-gradient(#4e0e0e, #000000);
   width: 80%;
   margin: auto;
+
+  .reviews {
+    padding: 4rem;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    h1 {
+      padding: 3rem;
+    }
+
+    h3 {
+      font-size: 0.8rem;
+    }
+    h2 {
+      font-size: 0.9rem;
+    }
+    p {
+      width: 20rem;
+      margin: auto;
+      font-size: 0.81rem;
+      text-align: center justify;
+      height: 100px;
+      overflow-y: auto;
+    }
+    .avatar {
+      img {
+        width: 19%;
+      }
+    }
+  }
 
   .rating {
     display: flex;
@@ -174,14 +215,6 @@ const CardContent = styled(motion.div)`
       margin: auto;
       padding: 4rem;
       text-align: justify;
-    }
-  }
-
-  .trailer {
-    padding: 2rem;
-
-    h1 {
-      padding: 2rem;
     }
   }
 
@@ -249,6 +282,16 @@ const CardContent = styled(motion.div)`
     }
     img {
       width: 100%;
+    }
+  }
+`;
+
+const Trailer = styled(motion.div)`
+  .trailer {
+    padding: 2rem;
+
+    h1 {
+      padding: 2rem;
     }
   }
 `;

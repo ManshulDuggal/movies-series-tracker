@@ -71,15 +71,16 @@ const Home = () => {
 const Section = styled(motion.div)`
   text-align: center;
   h1 {
-    background: radial-gradient(#d8b5b53d, #2e141485);
-    width: 40%;
-    border-radius: 2rem;
-    color: black;
-    font-family: "Anonymous Pro", monospace;
-    font-weight: 700;
+    width: 20%;
+    border: solid 2px;
+    color: #fdfdfdf8;
+    background: #00000088;
+    font-weight: bolder;
     padding: 1rem 0rem;
     margin: 2rem auto;
     font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    font-family: "Jomhuria", cursive;
   }
 `;
 

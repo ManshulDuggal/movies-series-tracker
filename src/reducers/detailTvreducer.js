@@ -1,6 +1,7 @@
 const initState = {
   trailers: [],
   detailSeries: [],
+  reviews: [],
   isLoading: true,
 };
 
@@ -10,7 +11,7 @@ const detailSeriesReducer = (state = initState, action) => {
       return {
         ...state,
         detailSeries: action.payload.detailSeries,
-
+        reviews: action.payload.reviews,
         trailers: action.payload.trailers,
         isLoading: false,
       };

@@ -16,10 +16,10 @@ const DetailData = ({ pathVar }) => {
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
-    console.log(element);
+
     if (element.classList.contains("fix")) {
       document.body.style.overflow = "auto";
-      history.push("/");
+      history.push("/movie");
     }
   };
 
@@ -46,15 +46,8 @@ const DetailData = ({ pathVar }) => {
   return (
     <>
       {!isLoading && (
-        <CardFull
-          variants={CardLoad}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className="fix"
-          onClick={exitdetailhandler}
-        >
-          <CardContent layoutId={`title ${pathVar}`}>
+        <CardFull className="fix" onClick={exitdetailhandler}>
+          <CardContent>
             <div className="title">
               <h1>{detail.original_title}</h1>
             </div>
@@ -69,8 +62,7 @@ const DetailData = ({ pathVar }) => {
                 </h4> */}
               </div>
 
-              <motion.img
-                layoutId={`image ${pathVar}`}
+              <img
                 src={"https://image.tmdb.org/t/p/w342" + detail.poster_path}
                 alt="poster"
               />
@@ -146,7 +138,7 @@ const CardContent = styled(motion.div)`
   text-align: center;
   color: white;
   padding: 2rem 2rem;
-  background: radial-gradient(#030303, #2e0202);
+  background: radial-gradient(#14031a, #5c155cfa);
   width: 80%;
   margin: auto;
 
@@ -173,7 +165,7 @@ const CardContent = styled(motion.div)`
       font-size: 0.81rem;
       text-align: justify;
       height: 100px;
-      overflow-y: auto ;
+      overflow-y: auto;
     }
     .avatar {
       img {
