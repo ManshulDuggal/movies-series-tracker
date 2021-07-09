@@ -60,11 +60,11 @@ const NavWrapper = styled(motion.div)`
   z-index: 2;
 
   .navbar {
-    background-color: transparent;
+    background-color: #00000089;
   }
 
   .navbar.colorChange {
-    background-color: #000000c7;
+    background-color: #3b0542c5;
   }
   a {
     text-decoration: none;
