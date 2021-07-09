@@ -80,13 +80,14 @@ const Section = styled(motion.div)`
   h1 {
     width: 20%;
     border: solid 2px;
-    color: #0bd692c0;
-
+    color: #fdfdfdf8;
+    background: #00000088;
     font-weight: bolder;
     padding: 1rem 0rem;
     margin: 2rem auto;
     font-size: 1.5rem;
-    font-family: 'Fredoka One', cursive;
+    letter-spacing: 0.1rem;
+    font-family: "Archivo Black", sans-serif;
   }
 `;
 

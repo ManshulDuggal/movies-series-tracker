@@ -80,7 +80,7 @@ const Section = styled(motion.div)`
     margin: 2rem auto;
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
-    font-family: "Jomhuria", cursive;
+    font-family: "Archivo Black", sans-serif;
   }
 `;
 
