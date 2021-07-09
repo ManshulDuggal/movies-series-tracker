@@ -85,11 +85,9 @@ const DetailData = ({ pathVar2 }) => {
             </div>
 
             <div className="reviews">
-             
               {reviews.map((data) => (
-                 
                 <>
-                <h1>Reviews</h1>
+                  <h1>Reviews</h1>
                   <h2>{data.author}</h2>
 
                   <div className="avatar">
@@ -244,7 +242,28 @@ const CardContent = styled(motion.div)`
         width: 15px;
       }
     }
+    .reviews {
+      width: 100%;
+      padding: 0rem;
+      margin: 2rem auto;
+      h3 {
+        font-size: 0.6rem;
+      }
+      h2 {
+        font-size: 0.6rem;
+      }
 
+      p {
+        padding: 0rem;
+        text-align: center;
+        width: 100%;
+      }
+      .avatar {
+        img {
+          width: 40%;
+        }
+      }
+    }
     h1,
     h2,
     h3,

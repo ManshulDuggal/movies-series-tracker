@@ -89,6 +89,12 @@ const Section = styled(motion.div)`
     letter-spacing: 0.1rem;
     font-family: "Archivo Black", sans-serif;
   }
+  @media only screen and (max-width: 450px) {
+    h1 {
+      font-size: 0.8rem;
+      width: 40%;
+    }
+  }
 `;
 
 const Serieswrapper = styled(motion.div)`

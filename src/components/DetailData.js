@@ -85,7 +85,7 @@ const DetailData = ({ pathVar }) => {
                 <div className="wrapperR">
                   <div className="reviews">
                     <h2>{data.author}</h2>
-                    <h3>{data.created_at}</h3>
+                   
                     <div className="avatar">
                       <img src={Default} alt="avatar" />
                     </div>
@@ -240,6 +240,29 @@ const CardContent = styled(motion.div)`
   }
 
   @media only screen and (max-width: 600px) {
+    .reviews {
+      width: 100%;
+      padding: 0rem;
+      margin: 2rem auto;
+      h3 {
+        font-size: 0.6rem;
+      }
+      h2 {
+        font-size: 0.6rem;
+      }
+
+      p {
+        padding: 0rem;
+        text-align: center;
+        width: 100%;
+      }
+      .avatar {
+        img {
+          width: 40%;
+        }
+      }
+    }
+
     .rating {
       display: flex;
 
