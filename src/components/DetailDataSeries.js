@@ -170,9 +170,13 @@ const CardContent = styled(motion.div)`
       width: 20rem;
       margin: auto;
       font-size: 0.81rem;
-      text-align: center justify;
+      text-align: justify;
       height: 100px;
       overflow-y: auto;
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
     }
     .avatar {
       img {
