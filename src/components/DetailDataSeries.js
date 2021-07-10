@@ -43,7 +43,13 @@ const DetailData = ({ pathVar2 }) => {
   return (
     <>
       {!isLoading && (
-        <CardFull className="fix" onClick={exitdetailhandler}>
+        <CardFull
+          className="fix"
+          onClick={exitdetailhandler}
+          variants={CardLoad}
+          initial="hidden"
+          animate="visible"
+        >
           <CardContent>
             <div className="title">
               <h1>{detailSeries.original_name}</h1>
