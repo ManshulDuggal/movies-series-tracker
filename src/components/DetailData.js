@@ -13,6 +13,7 @@ import { CardLoad } from "../anim/Anim";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 const DetailData = ({ pathVar }) => {
+  let image = "https://image.tmdb.org/t/p/w342";
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
@@ -69,7 +70,7 @@ const DetailData = ({ pathVar }) => {
               </div>
 
               <img
-                src={"https://image.tmdb.org/t/p/w342" + detail.poster_path}
+                src={detail.poster_path ? image + detail.poster_path : Default}
                 alt="poster"
               />
             </div>
@@ -83,7 +84,7 @@ const DetailData = ({ pathVar }) => {
 
             <div className="description">
               <h1>Summary</h1>
-              <p>{detail.overview}</p>
+              <p>{detail.overview ? detail.overview : ""}</p>
             </div>
 
             <div className="reviews ">
@@ -195,6 +196,12 @@ const CardContent = styled(motion.div)`
   }
 
   .description {
+    .notFound {
+      width: 90%;
+      margin: auto;
+      text-align: center;
+    }
+
     p {
       font-family: "Raleway", sans-serif;
       font-weight: bolder;

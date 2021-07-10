@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-
+import Noimage from "../images/imageDefault.png";
 //animations
 import { CardHover, CardLoadAll } from "../anim/Anim";
 //Rudux
@@ -9,7 +9,9 @@ import { useDispatch } from "react-redux";
 import { getDetailSeries } from "../actions/detailstvaction";
 //link
 import { Link } from "react-router-dom";
-const SeriesCards = ({ name, rating,  votes, img, id }) => {
+const SeriesCards = ({ name, rating, votes, img, id }) => {
+  let imageLink = " https://image.tmdb.org/t/p/w342";
+
   const StringToInt = id.toString();
   const dispatch = useDispatch();
   const detailHandler = () => {
@@ -34,7 +36,7 @@ const SeriesCards = ({ name, rating,  votes, img, id }) => {
             <h3>{date}</h3> */}
 
             <div className="poster">
-              <img src={"https://image.tmdb.org/t/p/w342" + img} alt="" />
+              <img src={img ? imageLink + img : Noimage} />
             </div>
             <h4>
               votes:
@@ -56,12 +58,19 @@ const Card = styled(motion.div)`
   background-color: white;
   border-radius: 2%;
   cursor: pointer;
-
+  .deafult-image {
+    height: 500px;
+    img {
+      height: 700px;
+    }
+  }
   img {
     display: block;
     overflow: hidden;
     width: 100%;
     object-fit: cover;
+    min-height: 40vh;
+    max-height: 40vh;
   }
 
   box-shadow: #130101ba 1px 1px 20px;

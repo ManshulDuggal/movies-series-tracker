@@ -11,6 +11,7 @@ import { getDetail } from "../actions/detailsAction";
 //link
 import { Link } from "react-router-dom";
 const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
+  let imageLink = " https://image.tmdb.org/t/p/w342";
   //load detail handler
   const StringToInt = id.toString();
 
@@ -38,12 +39,13 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
             <div className="poster">
               <img
-                src={"https://image.tmdb.org/t/p/w342" + img}
-                alt={notFound}
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = { notFound };
-                }}
+                src={
+                  img ? (
+                    imageLink + img
+                  ) : (
+                    <div className="default-image"> notFound </div>
+                  )
+                }
               />
             </div>
             <h4>
@@ -67,10 +69,19 @@ const Card = styled(motion.div)`
   border-radius: 2%;
   cursor: pointer;
 
+  .default-image {
+    height: 500px;
+    img {
+      height: 500px;
+    }
+  }
+
   img {
     display: block;
     width: 100%;
     object-fit: cover;
+    min-height: 40vh;
+    max-height: 40vh;
   }
 
   box-shadow: #130101ba 1px 1px 20px;

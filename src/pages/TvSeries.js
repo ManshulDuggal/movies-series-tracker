@@ -48,7 +48,7 @@ const TvSeries = () => {
                     : "To Be Announced"
                 }
                 votes={series.vote_count}
-                img={series.poster_path ? series.poster_path : { notFound }}
+                img={series.poster_path}
                 id={series.id}
               />
             ))}
