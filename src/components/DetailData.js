@@ -81,7 +81,7 @@ const DetailData = ({ pathVar }) => {
             </div>
 
             <div className="reviews ">
-              {reviews.map((data) => (
+              {reviews.slice(0, 2).map((data) => (
                 <div className="wrapperR">
                   <div className="reviews">
                     <h2>{data.author}</h2>
@@ -97,7 +97,7 @@ const DetailData = ({ pathVar }) => {
             </div>
 
             <div className="trailer">
-              {trailers.map((data) => (
+              {trailers.slice(0, 2).map((data) => (
                 <div>
                   <h1>{data.name} </h1>
                   <iframe

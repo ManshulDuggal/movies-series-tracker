@@ -85,7 +85,7 @@ const DetailData = ({ pathVar2 }) => {
             </div>
 
             <div className="reviews">
-              {reviews.map((data) => (
+              {reviews.slice(0, 2).map((data) => (
                 <>
                   <h1>Reviews</h1>
                   <h2>{data.author}</h2>
@@ -98,7 +98,7 @@ const DetailData = ({ pathVar2 }) => {
               ))}
             </div>
             <Trailer>
-              {trailers.map((data) => (
+              {trailers.slice(0, 2).map((data) => (
                 <div>
                   <h1>{data.name} </h1>
                   <iframe
@@ -279,18 +279,11 @@ const CardContent = styled(motion.div)`
         padding: 0.4rem;
       }
     }
-    .trailer {
-      width: 100%;
-      padding: 1rem;
-      iframe {
-        width: 100%;
-        height: 100%;
-      }
 
-      h1 {
-        padding: 0.6rem;
-      }
+    h1 {
+      padding: 0.6rem;
     }
+
     .description {
       padding: 2rem;
       p {
@@ -312,6 +305,16 @@ const Trailer = styled(motion.div)`
 
     h1 {
       padding: 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: auto;
+    width: 100%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
     }
   }
 `;
