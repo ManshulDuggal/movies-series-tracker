@@ -5,6 +5,7 @@ import styled from "styled-components";
 import starEmpty from "../images/starEmpty.png";
 import starFull from "../images/starFull.png";
 import Default from "../images/default.png";
+import notFound from "../images/notFound.png";
 //animation
 import { CardLoad } from "../anim/Anim";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,6 +14,8 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
 const DetailData = ({ pathVar2 }) => {
+  let image = "https://image.tmdb.org/t/p/w342";
+
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
@@ -69,7 +72,11 @@ const DetailData = ({ pathVar2 }) => {
                 </h4> */}
             </div>
             <motion.img
-              src={"https://image.tmdb.org/t/p/w342" + detailSeries.poster_path}
+              src={
+                detailSeries.poster_path
+                  ? image + detailSeries.poster_path
+                  : notFound
+              }
               alt="poster"
             />
             {/* </div> */}
@@ -84,9 +91,10 @@ const DetailData = ({ pathVar2 }) => {
             <div className="description">
               <h1>Summary</h1>
               <p>
-                {detailSeries.overview
-                  ? detailSeries.overview
-                  : "not available in api"}
+                {detailSeries.overview ? (
+                  detailSeries.overview ) : (
+                  <p className="notFound">not available in api</p>
+                )}
               </p>
             </div>
 
@@ -216,6 +224,12 @@ const CardContent = styled(motion.div)`
   }
 
   .description {
+    .notFound {
+      width: 90%;
+      margin: auto;
+      text-align: center;
+    }
+
     p {
       font-family: "Raleway", sans-serif;
       font-weight: bolder;
