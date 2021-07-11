@@ -135,7 +135,7 @@ const Serieswrapper = styled(motion.div)`
       font-size: 0.5rem;
       span {
         padding: 0.5rem;
-        margin-right: 50%;
+        margin-right: 30%;
       }
     }
   }
