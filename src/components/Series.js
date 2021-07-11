@@ -77,8 +77,8 @@ const Card = styled(motion.div)`
 
   @media only screen and (max-width: 600px) {
     img {
-      min-height: 35vh;
-      max-height: 35vh;
+      min-height: 40vh;
+      max-height: 40vh;
     }
   }
 `;
