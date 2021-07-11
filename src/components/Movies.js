@@ -85,6 +85,12 @@ const Card = styled(motion.div)`
   }
 
   box-shadow: #130101ba 1px 1px 20px;
+  @media only screen and (max-width: 600px) {
+    img {
+      min-height: 20vh;
+      max-height: 20vh;
+    }
+  }
 `;
 
 export default MovieCards;
