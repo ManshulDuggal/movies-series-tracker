@@ -10,7 +10,7 @@ import { CardHover, CardLoadAll } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetail } from "../actions/detailsAction";
-import { favouriteActions } from "../actions/favouriteAction";
+import { favoriteActions } from "../actions/favouriteAction";
 //link
 import { Link } from "react-router-dom";
 const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
@@ -31,14 +31,18 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
+        <Favourites>
+          `
+          <button
+            onClick={() =>
+              dispatch(favoriteActions({ id, name, img, votes, rating, date }))
+            }
+          ></button>
+        </Favourites>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
-          <Favourites>
-            `
-            <img src={favNot} onClick={() => dispatch(favouriteActions(id))  } />
-          </Favourites>
           <Card
             variants={CardHover}
             whileHover="whileHover"
@@ -105,15 +109,18 @@ const Card = styled(motion.div)`
 `;
 
 const Favourites = styled.div`
-  position: absolute;
-  z-index: 1;
+  z-index: 2;
   border: none;
-  padding: 1rem;
-  img {
+  padding: 2rem;
+  button {
+    height: 20px;
+    width: 100%;
+  }
+  /* img {
     cursor: pointer;
     pointer-events: all;
     width: 30px;
-  }
+  } */
 `;
 
 export default MovieCards;

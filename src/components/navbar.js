@@ -45,6 +45,15 @@ const Nav = () => {
                 Movies
               </ListItem>
             </Link>
+            <Link to="/favorites">
+              <ListItem
+                variants={NavHover}
+                whileFocus="whileFocus"
+                whileHover="whileHover"
+              >
+                favorites
+              </ListItem>
+            </Link>
           </ul>
         </div>
       </nav>

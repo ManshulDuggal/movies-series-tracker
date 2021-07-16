@@ -1,5 +1,5 @@
 const initState = {
-  favourites: [],
+  favorites: [],
 };
 
 const favouriteReducer = (state = initState, action) => {
@@ -7,13 +7,8 @@ const favouriteReducer = (state = initState, action) => {
     case "ADD_FAVOURITE":
       return {
         ...state,
-        favourites: {
-          ...state,
-          favorites: {
-            ...state,
-            favorites: [...state.favorites, action.payload],
-          },
-        },
+
+        favorites: [...state.favorites, action.payload],
       };
     default:
       return { ...state };
