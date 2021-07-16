@@ -24,6 +24,8 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   const removeFav = (id) => {
     const newList = favorites.filter((favorites) => favorites.id != id);
   };
+  removeFav(favorites);
+
   const detailHandler = () => {
     document.body.style.overflow = "auto";
     dispatch(getDetail(id));
