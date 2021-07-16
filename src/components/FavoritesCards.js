@@ -8,7 +8,7 @@ import notFound from "../images/notFound.png";
 //animations
 import { CardHover, CardLoadAll } from "../anim/Anim";
 //Rudux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions/detailsAction";
 
 //link
@@ -19,7 +19,11 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   const StringToInt = id.toString();
 
   const dispatch = useDispatch();
+  const { favorites } = useSelector((state) => state.favorites);
 
+  const removeFav = (id) => {
+    const newList = favorites.filter((favorites) => favorites.id != id);
+  };
   const detailHandler = () => {
     document.body.style.overflow = "auto";
     dispatch(getDetail(id));
@@ -28,6 +32,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
+        `<button onClick={removeFav()}> remove</button>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -66,6 +71,10 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
 const Wrapper = styled(motion.div)`
   cursor: "pointer";
+  button {
+    width: 100%;
+    height: 20px;
+  }
 `;
 
 const Card = styled(motion.div)`

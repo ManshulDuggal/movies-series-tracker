@@ -37,7 +37,7 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
             onClick={() =>
               dispatch(favoriteActions({ name, rating, date, votes, img, id }))
             }
-          ></button>
+          >add to favorites</button>
         </Favourites>
         <Link
           to={`/movie/${id}`}

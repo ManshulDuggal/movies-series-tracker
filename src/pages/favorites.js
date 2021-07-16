@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
-import { moviesAction } from "../actions/moviesAction";
+import { favoriteActions } from "../actions/favouriteAction";
 
 import FavoritesCards from "../components/FavoritesCards";
 import DetailData from "../components/DetailData";
@@ -13,11 +13,6 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router";
 import { CardLoad, CardLoadAll } from "../anim/Anim";
 const Favourites = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(moviesAction());
-  }, [dispatch]);
-
   //get the data back from the state
   const { favorites } = useSelector((state) => state.favorites);
   //uselocation for pooping the card
@@ -37,12 +32,12 @@ const Favourites = () => {
         <Cardwrapper>
           {favorites.map((data) => (
             <FavoritesCards
-              name={data.title}
+              name={data.name}
               key={data.id}
-              rating={data.vote_average}
-              date={data.release_date ? data.release_date : "To Be Announced"}
+              rating={data.rating}
+              date={data.date ? data.date : "To Be Announced"}
               votes={data.vote_count}
-              img={data.poster_path}
+              img={data.img}
               id={data.id}
             />
           ))}
