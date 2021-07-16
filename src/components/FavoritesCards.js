@@ -20,11 +20,9 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
   const dispatch = useDispatch();
   const { favorites } = useSelector((state) => state.favorites);
-
-  const removeFav = (id) => {
+  const RemoveFav = (id) => {
     const newList = favorites.filter((favorites) => favorites.id != id);
   };
-  removeFav(favorites);
 
   const detailHandler = () => {
     document.body.style.overflow = "auto";
@@ -34,7 +32,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        `<button onClick={removeFav()}> remove</button>
+        `<button onClick={RemoveFav(id)}> remove</button>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
