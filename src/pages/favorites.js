@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
 import { moviesAction } from "../actions/moviesAction";
 
-import MovieCards from "../components/Movies";
+import FavoritesCards from "../components/FavoritesCards";
 import DetailData from "../components/DetailData";
 import styled from "styled-components";
 
@@ -19,12 +19,13 @@ const Favourites = () => {
   }, [dispatch]);
 
   //get the data back from the state
-  const { favourites } = useSelector((state) => state.favourites);
+  const { favorites } = useSelector((state) => state.favorites);
   //uselocation for pooping the card
   const location = useLocation();
 
   const pathVar = location.pathname.split("/")[2];
   console.log(pathVar);
+
   return (
     <div>
       <Section />
@@ -34,9 +35,18 @@ const Favourites = () => {
         <h1>Favorites</h1>
 
         <Cardwrapper>
-          {favourites.map((data) => (
-            <MovieCards favourites={false} />
+          {favorites.map((data) => (
+            <FavoritesCards
+              name={data.title}
+              key={data.id}
+              rating={data.vote_average}
+              date={data.release_date ? data.release_date : "To Be Announced"}
+              votes={data.vote_count}
+              img={data.poster_path}
+              id={data.id}
+            />
           ))}
+          ;
         </Cardwrapper>
       </Section>
     </div>

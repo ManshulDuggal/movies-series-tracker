@@ -3,25 +3,22 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import notFound from "../images/notFound.png";
-import fav from "../images/fav.png";
-import favNot from "../images/fav-not.png";
+// import fav from "../images/fav.png";
+// import favNot from "../images/fav-not.png";
 //animations
 import { CardHover, CardLoadAll } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetail } from "../actions/detailsAction";
-import { favoriteActions } from "../actions/favouriteAction";
+
 //link
 import { Link } from "react-router-dom";
-const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
+const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   let imageLink = " https://image.tmdb.org/t/p/w342";
   //load detail handler
   const StringToInt = id.toString();
 
   const dispatch = useDispatch();
-  // const addFav = () => {
-  //   dispatch(favouriteActions(id));
-  // };
 
   const detailHandler = () => {
     document.body.style.overflow = "auto";
@@ -31,14 +28,6 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        <Favourites>
-          `
-          <button
-            onClick={() =>
-              dispatch(favoriteActions({ name, rating, date, votes, img, id }))
-            }
-          ></button>
-        </Favourites>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -123,4 +112,4 @@ const Favourites = styled.div`
   } */
 `;
 
-export default MovieCards;
+export default FavoritesCards;
