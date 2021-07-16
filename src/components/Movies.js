@@ -3,11 +3,14 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import notFound from "../images/notFound.png";
+import fav from "../images/fav.png";
+import favNot from "../images/fav-not.png";
 //animations
 import { CardHover, CardLoadAll } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetail } from "../actions/detailsAction";
+import { favouriteActions } from "../actions/favouriteAction";
 //link
 import { Link } from "react-router-dom";
 const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
@@ -16,6 +19,10 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   const StringToInt = id.toString();
 
   const dispatch = useDispatch();
+  // const addFav = () => {
+  //   dispatch(favouriteActions(id));
+  // };
+
   const detailHandler = () => {
     document.body.style.overflow = "auto";
     dispatch(getDetail(id));
@@ -28,6 +35,10 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
+          <Favourites>
+            `
+            <img src={favNot} onClick={() => dispatch(favouriteActions(id))  } />
+          </Favourites>
           <Card
             variants={CardHover}
             whileHover="whileHover"
@@ -90,6 +101,18 @@ const Card = styled(motion.div)`
       min-height: 30vh;
       max-height: 30vh;
     }
+  }
+`;
+
+const Favourites = styled.div`
+  position: absolute;
+  z-index: 1;
+  border: none;
+  padding: 1rem;
+  img {
+    cursor: pointer;
+    pointer-events: all;
+    width: 30px;
   }
 `;
 

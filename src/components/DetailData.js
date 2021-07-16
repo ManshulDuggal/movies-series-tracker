@@ -135,7 +135,7 @@ const CardFull = styled(motion.div)`
   left: 0;
   overflow-y: scroll;
   padding: 5rem 0rem;
-  z-index: 1;
+  z-index: 4;
 `;
 const CardContent = styled(motion.div)`
   position: absolute;

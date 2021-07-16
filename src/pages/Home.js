@@ -19,7 +19,7 @@ const Home = () => {
   }, [dispatch]);
 
   //get the data back from the state
-  const { popularMovies, trendingMovies } = useSelector(
+  const { popularMovies, trendingMovies, favourites } = useSelector(
     (state) => state.movies
   );
   //uselocation for pooping the card
@@ -38,6 +38,7 @@ const Home = () => {
         <Cardwrapper>
           {popularMovies.map((movie) => (
             <MovieCards
+              favourites={false}
               name={movie.title}
               key={movie.id}
               rating={movie.vote_average}
@@ -54,6 +55,7 @@ const Home = () => {
         <Cardwrapper>
           {trendingMovies.map((movie) => (
             <MovieCards
+              favourites={false}
               name={movie.title ? movie.title : movie.original_name}
               key={movie.id}
               rating={movie.vote_average}
