@@ -10,6 +10,7 @@ import { CardHover } from "../anim/Anim";
 //Rudux
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions/detailsAction";
+import { newListActions } from "../actions/newlist";
 // import { favoriteActions } from "../actions/favouriteAction";
 
 //link
@@ -24,6 +25,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   const RemoveFav = (id) => {
     const newList = favorites.filter((favorites) => favorites.id !== id);
     console.log(JSON.stringify(newList) + "this is your new list");
+    dispatch(newListActions(newList));
   };
 
   const detailHandler = () => {

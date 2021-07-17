@@ -5,6 +5,7 @@ import { seriesReducer } from "./seriesReducer";
 import detailReducer from "./detailReducer";
 import favoritesReducer from "./favoritesReducer";
 import detailSeriesReducer from "./detailTvreducer";
+import newListReducer from "./newListReducer";
 
 const rootReducer = combineReducers({
   movies: movieReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   detail: detailReducer,
   detailtv: detailSeriesReducer,
   favorites: favoritesReducer,
+  newList: newListReducer,
 });
 
 export default rootReducer;

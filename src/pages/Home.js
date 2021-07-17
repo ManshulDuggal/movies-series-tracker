@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
 import { moviesAction } from "../actions/moviesAction";
 
+
+
 import MovieCards from "../components/Movies";
 import DetailData from "../components/DetailData";
 import styled from "styled-components";

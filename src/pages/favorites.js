@@ -1,7 +1,7 @@
 import React from "react";
 //Redux
 import { useSelector } from "react-redux";
-//useDispatch,
+//
 // we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
 // import { favoriteActions } from "../actions/favouriteAction";
 
@@ -37,7 +37,7 @@ const Favourites = () => {
               key={data.id}
               rating={data.rating}
               date={data.date ? data.date : "To Be Announced"}
-              votes={data.vote_count}
+              votes={data.votes}
               img={data.img}
               id={data.id}
             />
