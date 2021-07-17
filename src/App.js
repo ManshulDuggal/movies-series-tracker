@@ -20,7 +20,7 @@ function App() {
       <Route path={["/movie/:id", "/movie"]} exact>
         <Home />
       </Route>
-      <Route path="/favorites" exact>
+      <Route path={["/favorites/:id", "/favorites"]} exact>
         <Favourites />
       </Route>
 
