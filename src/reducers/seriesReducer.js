@@ -1,7 +1,6 @@
 const initState = {
   popularSeries: [],
   trendingSeries: [],
-  favourites: [],
 };
 
 export const seriesReducer = (state = initState, action) => {

@@ -38,7 +38,6 @@ const Home = () => {
         <Cardwrapper>
           {popularMovies.map((movie) => (
             <MovieCards
-              favourites={false}
               name={movie.title}
               key={movie.id}
               rating={movie.vote_average}
