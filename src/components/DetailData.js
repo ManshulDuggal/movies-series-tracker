@@ -7,7 +7,7 @@ import starFull from "../images/starFull.png";
 import Default from "../images/default.png";
 
 //animation
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { CardLoad } from "../anim/Anim";
 //redux
 import { useSelector } from "react-redux";

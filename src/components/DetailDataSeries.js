@@ -8,7 +8,7 @@ import Default from "../images/default.png";
 import notFound from "../images/notFound.png";
 //animation
 import { CardLoad } from "../anim/Anim";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 //redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
@@ -92,7 +92,8 @@ const DetailData = ({ pathVar2 }) => {
               <h1>Summary</h1>
               <p>
                 {detailSeries.overview ? (
-                  detailSeries.overview ) : (
+                  detailSeries.overview
+                ) : (
                   <p className="notFound">not available in api</p>
                 )}
               </p>

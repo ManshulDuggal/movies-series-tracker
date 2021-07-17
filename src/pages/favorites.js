@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 //Redux
-import { useDispatch, useSelector } from "react-redux";
-//we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
-import { favoriteActions } from "../actions/favouriteAction";
+import { useSelector } from "react-redux";
+//useDispatch,
+// we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
+// import { favoriteActions } from "../actions/favouriteAction";
 
 import FavoritesCards from "../components/FavoritesCards";
 import DetailData from "../components/DetailData";
@@ -11,7 +12,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { useLocation } from "react-router";
-import { CardLoad, CardLoadAll } from "../anim/Anim";
+// import { CardLoad, CardLoadAll } from "../anim/Anim";
 const Favourites = () => {
   //get the data back from the state
   const { favorites } = useSelector((state) => state.favorites);

@@ -11,7 +11,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { useLocation } from "react-router";
-import { CardLoad, CardLoadAll } from "../anim/Anim";
+
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +19,7 @@ const Home = () => {
   }, [dispatch]);
 
   //get the data back from the state
-  const { popularMovies, trendingMovies, favourites } = useSelector(
+  const { popularMovies, trendingMovies } = useSelector(
     (state) => state.movies
   );
   //uselocation for pooping the card

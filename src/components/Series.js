@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import Noimage from "../images/imageDefault.png";
 //animations
-import { CardHover, CardLoadAll } from "../anim/Anim";
+import { CardHover } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetailSeries } from "../actions/detailstvaction";
@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const SeriesCards = ({ name, rating, votes, img, id }) => {
   let imageLink = " https://image.tmdb.org/t/p/w342";
 
-  const StringToInt = id.toString();
+  // const StringToInt = id.toString();
   const dispatch = useDispatch();
   const detailHandler = () => {
     document.body.style.overflow = "auto";
@@ -36,7 +36,7 @@ const SeriesCards = ({ name, rating, votes, img, id }) => {
             <h3>{date}</h3> */}
 
             <div className="poster">
-              <img src={img ? imageLink + img : Noimage} />
+              <img src={img ? imageLink + img : Noimage}  alt={name}/>
             </div>
             <h4>
               votes:

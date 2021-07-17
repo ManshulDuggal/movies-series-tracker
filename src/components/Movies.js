@@ -2,11 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-import notFound from "../images/notFound.png";
-import fav from "../images/fav.png";
-import favNot from "../images/fav-not.png";
+// import notFound from "../images/notFound.png";
+// import fav from "../images/fav.png";
+// import favNot from "../images/fav-not.png";
 //animations
-import { CardHover, CardLoadAll } from "../anim/Anim";
+import { CardHover } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetail } from "../actions/detailsAction";
@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   let imageLink = " https://image.tmdb.org/t/p/w342";
   //load detail handler
-  const StringToInt = id.toString();
+  // const StringToInt = id.toString();
 
   const dispatch = useDispatch();
   // const addFav = () => {
@@ -37,7 +37,9 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
             onClick={() =>
               dispatch(favoriteActions({ name, rating, date, votes, img, id }))
             }
-          >add to favorites</button>
+          >
+            add to favorites
+          </button>
         </Favourites>
         <Link
           to={`/movie/${id}`}
@@ -61,6 +63,7 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
                     <div className="default-image"> notFound </div>
                   )
                 }
+                alt={name}
               />
             </div>
             <h4>

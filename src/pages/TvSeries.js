@@ -10,7 +10,7 @@ import { seriesAction } from "../actions/seriesAction";
 import SeriesCard from "../components/Series";
 import DetailData from "../components/DetailDataSeries";
 import styled from "styled-components";
-import { CardLoad, CardLoadAll } from "../anim/Anim";
+// import { CardLoad, CardLoadAll } from "../anim/Anim";
 import { motion } from "framer-motion";
 
 import { useLocation } from "react-router";
