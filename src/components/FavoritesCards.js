@@ -20,8 +20,8 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
   const dispatch = useDispatch();
   const { favorites } = useSelector((state) => state.favorites);
-  const RemoveFav = (name) => {
-    const newList = favorites.filter((favorites) => (favorites.name !== name));
+  const RemoveFav = (id) => {
+    const newList = favorites.filter((favorites) => favorites.id !== id);
     console.log(JSON.stringify(newList) + "this is your new list");
   };
 
@@ -33,7 +33,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        `<button onClick={() => RemoveFav(name)}> remove</button>
+        `<button onClick={() => RemoveFav(id)}> remove</button>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
