@@ -1,34 +1,24 @@
-import React, { useEffect } from "react";
-//Redux
-import { useDispatch, useSelector } from "react-redux";
-//we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
-import { favoriteActions } from "../actions/favouriteAction";
-
-import FavoritesCards from "../components/FavoritesCards";
-import DetailData from "../components/DetailData";
-import styled from "styled-components";
-
+import React from "react";
 import { motion } from "framer-motion";
+import styled from "styled-components";
+import { useSelector } from "react-redux"; // this function gets the redux state
+import { useLocation } from "react-router-dom";
+import DetailData from "../components/DetailData";
+import FavoritesCards from "../components/FavoritesCards";
 
-import { useLocation } from "react-router";
-import { CardLoad, CardLoadAll } from "../anim/Anim";
 const Favourites = () => {
   //get the data back from the state
   const { favorites } = useSelector((state) => state.favorites);
   //uselocation for pooping the card
   const location = useLocation();
-
   const pathVar = location.pathname.split("/")[2];
   console.log(pathVar);
-
   return (
     <div>
       <Section />
-
       {pathVar && <DetailData />}
       <Section>
         <h1>Favorites</h1>
-
         <Cardwrapper>
           {favorites.map((data) => (
             <FavoritesCards

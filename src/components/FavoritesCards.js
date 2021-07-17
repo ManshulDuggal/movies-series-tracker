@@ -2,26 +2,26 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-import notFound from "../images/notFound.png";
-// import fav from "../images/fav.png";
-// import favNot from "../images/fav-not.png";
+// import notFound from "../assets/images/notFound.png";
+// import fav from "../assets/images/fav.png";
+// import favNot from "../assets/images/fav-not.png";
 //animations
-import { CardHover, CardLoadAll } from "../anim/Anim";
+import { CardHover } from "../anim/Anim";
 //Rudux
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../actions/detailsAction";
+import { getDetail } from "../redux/actions/detailsAction";
 
 //link
 import { Link } from "react-router-dom";
 const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   let imageLink = " https://image.tmdb.org/t/p/w342";
   //load detail handler
-  const StringToInt = id.toString();
+  // const StringToInt = id.toString();
 
   const dispatch = useDispatch();
   const { favorites } = useSelector((state) => state.favorites);
   const RemoveFav = (name) => {
-    const newList = favorites.filter((favorites) => (favorites.name !== name));
+    const newList = favorites.filter((favorites) => favorites.name !== name);
     console.log(JSON.stringify(newList) + "this is your new list");
   };
 
@@ -56,6 +56,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
                     <div className="default-image"> notFound </div>
                   )
                 }
+                alt={img}
               />
             </div>
             <h4>
@@ -107,19 +108,19 @@ const Card = styled(motion.div)`
   }
 `;
 
-const Favourites = styled.div`
-  z-index: 2;
-  border: none;
-  padding: 2rem;
-  button {
-    height: 20px;
-    width: 100%;
-  }
-  /* img {
-    cursor: pointer;
-    pointer-events: all;
-    width: 30px;
-  } */
-`;
+// const Favourites = styled.div`
+//   z-index: 2;
+//   border: none;
+//   padding: 2rem;
+//   button {
+//     height: 20px;
+//     width: 100%;
+//   }
+//   /* img {
+//     cursor: pointer;
+//     pointer-events: all;
+//     width: 30px;
+//   } */
+// `;
 
 export default FavoritesCards;

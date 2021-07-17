@@ -1,5 +1,5 @@
 import axios from "axios";
-import { popularMovies, trendingMovies } from "../api";
+import { popularMovies, trendingMovies } from "../../api";
 
 //action creator
 

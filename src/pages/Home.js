@@ -2,16 +2,14 @@ import React, { useEffect } from "react";
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
-import { moviesAction } from "../actions/moviesAction";
-
-import MovieCards from "../components/Movies";
-import DetailData from "../components/DetailData";
-import styled from "styled-components";
+import { moviesAction } from "../redux/actions/moviesAction";
 
 import { motion } from "framer-motion";
+import styled from "styled-components";
+import MovieCards from "../components/Movies";
+import DetailData from "../components/DetailData";
+import { useLocation } from "react-router-dom";
 
-import { useLocation } from "react-router";
-import { CardLoad, CardLoadAll } from "../anim/Anim";
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +17,7 @@ const Home = () => {
   }, [dispatch]);
 
   //get the data back from the state
-  const { popularMovies, trendingMovies, favourites } = useSelector(
+  const { popularMovies, trendingMovies } = useSelector(
     (state) => state.movies
   );
   //uselocation for pooping the card
@@ -30,11 +28,9 @@ const Home = () => {
   return (
     <div>
       <Section />
-
       {pathVar && <DetailData />}
       <Section>
         <h1>Popular Movies</h1>
-
         <Cardwrapper>
           {popularMovies.map((movie) => (
             <MovieCards

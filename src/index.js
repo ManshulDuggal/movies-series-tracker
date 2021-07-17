@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 //importting the root reducer
-import rootReducer from "./reducers/index";
+import rootReducer from "./redux/reducers/index";
 //react router
 import { BrowserRouter } from "react-router-dom";
 

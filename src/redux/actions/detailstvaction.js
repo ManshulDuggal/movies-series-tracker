@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetTrailersSeries, GetInfoSeries, GetReviewSeries } from "../api";
+import { GetTrailersSeries, GetInfoSeries, GetReviewSeries } from "../../api";
 
 export const getDetailSeries = (id) => async (dispatch) => {
   const trailersData = await axios.get(GetTrailersSeries(id));
