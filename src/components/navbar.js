@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Logo from "../images/logo.png";
+import Logo from "../assets/images/logo.png";
 
 import { NavHover } from "../anim/Anim";
 
@@ -43,6 +43,15 @@ const Nav = () => {
                 whileHover="whileHover"
               >
                 Movies
+              </ListItem>
+            </Link>
+            <Link to="/favorites">
+              <ListItem
+                variants={NavHover}
+                whileFocus="whileFocus"
+                whileHover="whileHover"
+              >
+                favorites
               </ListItem>
             </Link>
           </ul>

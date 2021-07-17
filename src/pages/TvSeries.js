@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 //Redux
 //importing images
-import notFound from "../images/notFound.png";
+import notFound from "../assets/images/notFound.png";
 import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
 
-import { seriesAction } from "../actions/seriesAction";
+import { seriesAction } from "../redux/actions/seriesAction";
 
 import SeriesCard from "../components/Series";
 import DetailData from "../components/DetailDataSeries";
 import styled from "styled-components";
-import { CardLoad, CardLoadAll } from "../anim/Anim";
 import { motion } from "framer-motion";
 
 import { useLocation } from "react-router";

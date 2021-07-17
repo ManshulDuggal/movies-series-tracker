@@ -2,6 +2,7 @@ import React from "react";
 
 import Home from "./pages/Home";
 import TvSeries from "./pages/TvSeries";
+import Favourites from "./pages/favorites";
 import Nav from "./components/navbar";
 import GlobalStyle from "./components/GlobalStyles";
 //router
@@ -18,6 +19,9 @@ function App() {
       </Route>
       <Route path={["/movie/:id", "/movie"]} exact>
         <Home />
+      </Route>
+      <Route path="/favorites" exact>
+        <Favourites />
       </Route>
 
       <Route path={["/movie/:id", "/series"]} exact>

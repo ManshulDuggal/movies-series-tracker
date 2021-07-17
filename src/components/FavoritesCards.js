@@ -8,20 +8,22 @@ import styled from "styled-components";
 //animations
 import { CardHover } from "../anim/Anim";
 //Rudux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../redux/actions/detailsAction";
-import { favoriteAddAction } from "../redux/actions/favouriteAction";
+
 //link
 import { Link } from "react-router-dom";
-const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
+const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   let imageLink = " https://image.tmdb.org/t/p/w342";
   //load detail handler
   // const StringToInt = id.toString();
 
   const dispatch = useDispatch();
-  // const addFav = () => {
-  //   dispatch(favouriteActions(id));
-  // };
+  const { favorites } = useSelector((state) => state.favorites);
+  const RemoveFav = (name) => {
+    const newList = favorites.filter((favorites) => favorites.name !== name);
+    console.log(JSON.stringify(newList) + "this is your new list");
+  };
 
   const detailHandler = () => {
     document.body.style.overflow = "auto";
@@ -31,18 +33,7 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        <Favourites>
-          `
-          <button
-            onClick={() =>
-              dispatch(
-                favoriteAddAction({ name, rating, date, votes, img, id })
-              )
-            }
-          >
-            add to favorites
-          </button>
-        </Favourites>
+        `<button onClick={() => RemoveFav(name)}> remove</button>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -82,6 +73,10 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
 const Wrapper = styled(motion.div)`
   cursor: "pointer";
+  button {
+    width: 100%;
+    height: 20px;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -113,19 +108,19 @@ const Card = styled(motion.div)`
   }
 `;
 
-const Favourites = styled.div`
-  z-index: 2;
-  border: none;
-  padding: 2rem;
-  button {
-    height: 20px;
-    width: 100%;
-  }
-  /* img {
-    cursor: pointer;
-    pointer-events: all;
-    width: 30px;
-  } */
-`;
+// const Favourites = styled.div`
+//   z-index: 2;
+//   border: none;
+//   padding: 2rem;
+//   button {
+//     height: 20px;
+//     width: 100%;
+//   }
+//   /* img {
+//     cursor: pointer;
+//     pointer-events: all;
+//     width: 30px;
+//   } */
+// `;
 
-export default MovieCards;
+export default FavoritesCards;

@@ -2,22 +2,22 @@ import React from "react";
 //styled components
 import styled from "styled-components";
 //imnporting images
-import starEmpty from "../images/starEmpty.png";
-import starFull from "../images/starFull.png";
-import Default from "../images/default.png";
+import starEmpty from "../assets/images/starEmpty.png";
+import starFull from "../assets/images/starFull.png";
+import Default from "../assets/images/default.png";
 
 //animation
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { CardLoad } from "../anim/Anim";
 //redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+
 const DetailData = ({ pathVar }) => {
   let image = "https://image.tmdb.org/t/p/w342";
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
-
     if (element.classList.contains("fix")) {
       document.body.style.overflow = "auto";
       history.push("/movie");
@@ -135,7 +135,7 @@ const CardFull = styled(motion.div)`
   left: 0;
   overflow-y: scroll;
   padding: 5rem 0rem;
-  z-index: 1;
+  z-index: 4;
 `;
 const CardContent = styled(motion.div)`
   position: absolute;
