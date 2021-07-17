@@ -26,7 +26,7 @@ const Favourites = () => {
               key={data.id}
               rating={data.rating}
               date={data.date ? data.date : "To Be Announced"}
-              votes={data.vote_count}
+              votes={data.votes}
               img={data.img}
               id={data.id}
             />

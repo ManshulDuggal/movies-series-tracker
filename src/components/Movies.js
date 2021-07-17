@@ -11,6 +11,7 @@ import { CardHover } from "../anim/Anim";
 import { useDispatch } from "react-redux";
 import { getDetail } from "../redux/actions/detailsAction";
 import { favoriteAddAction } from "../redux/actions/favouriteAction";
+
 //link
 import { Link } from "react-router-dom";
 const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {

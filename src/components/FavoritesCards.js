@@ -8,9 +8,9 @@ import styled from "styled-components";
 //animations
 import { CardHover } from "../anim/Anim";
 //Rudux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getDetail } from "../redux/actions/detailsAction";
-
+import { favoriteRemoveAction } from "../redux/actions/favouriteAction";
 //link
 import { Link } from "react-router-dom";
 const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
@@ -19,10 +19,12 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   // const StringToInt = id.toString();
 
   const dispatch = useDispatch();
-  const { favorites } = useSelector((state) => state.favorites);
-  const RemoveFav = (name) => {
-    const newList = favorites.filter((favorites) => favorites.name !== name);
-    console.log(JSON.stringify(newList) + "this is your new list");
+  // const { favorites } = useSelector((state) => state.favorites);
+  const RemoveFav = (id) => {
+    dispatch(favoriteRemoveAction(id));
+
+    // const newList = favorites.filter((favorites) => favorites.name !== name);
+    // console.log(JSON.stringify(newList) + "this is your new list");
   };
 
   const detailHandler = () => {
@@ -33,7 +35,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        `<button onClick={() => RemoveFav(name)}> remove</button>
+        `<button onClick={() => RemoveFav(id)}> remove</button>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
