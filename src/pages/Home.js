@@ -24,7 +24,7 @@ const Home = () => {
   const location = useLocation();
 
   const pathVar = location.pathname.split("/")[2];
-  console.log(pathVar + "this is the path vars");
+
   return (
     <div>
       <Section />

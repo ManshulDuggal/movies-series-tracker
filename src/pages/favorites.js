@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { useSelector } from "react-redux"; // this function gets the redux state
 import { useLocation } from "react-router-dom";
-import DetailData from "../components/DetailData";
+import DetailDataFav from "../components/DetailDataFav";
 import FavoritesCards from "../components/FavoritesCards";
 
 const Favourites = () => {
@@ -12,11 +12,11 @@ const Favourites = () => {
   //uselocation for pooping the card
   const location = useLocation();
   const pathVar = location.pathname.split("/")[2];
-  console.log(pathVar);
+
   return (
     <div>
       <Section />
-      {pathVar && <DetailData />}
+      {pathVar && <DetailDataFav />}
       <Section>
         <h1>Favorites</h1>
         <Cardwrapper>

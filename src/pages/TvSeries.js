@@ -27,7 +27,7 @@ const TvSeries = () => {
   const location = useLocation();
 
   const pathVar2 = location.pathname.split("/")[2];
-  console.log(pathVar2);
+
   return (
     <>
       {pathVar2 && <DetailData />}

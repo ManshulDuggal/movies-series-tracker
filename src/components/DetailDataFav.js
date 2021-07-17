@@ -13,14 +13,14 @@ import { CardLoad } from "../anim/Anim";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
-const DetailData = ({ pathVar }) => {
+const DetailDataFav = ({ pathVar }) => {
   let image = "https://image.tmdb.org/t/p/w342";
   const history = useHistory();
   const exitdetailhandler = (e) => {
     const element = e.target;
     if (element.classList.contains("fix")) {
       document.body.style.overflow = "auto";
-      history.push("/movies");
+      history.push("/favorites");
     }
   };
 
@@ -330,4 +330,4 @@ const CardContent = styled(motion.div)`
     }
   }
 `;
-export default DetailData;
+export default DetailDataFav;

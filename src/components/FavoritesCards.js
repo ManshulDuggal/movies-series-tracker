@@ -37,7 +37,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
       <Wrapper>
         `<button onClick={() => RemoveFav(id)}> remove</button>
         <Link
-          to={`/movie/${id}`}
+          to={`/favorites/${id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
           <Card
