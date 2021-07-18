@@ -20,8 +20,8 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
   const dispatch = useDispatch();
   // const { favorites } = useSelector((state) => state.favorites);
-  const RemoveFav = (id) => {
-    dispatch(favoriteRemoveAction(id));
+  const RemoveFav = (movie) => {
+    dispatch(favoriteRemoveAction(movie));
 
     // const newList = favorites.filter((favorites) => favorites.name !== name);
     // console.log(JSON.stringify(newList) + "this is your new list");
@@ -35,15 +35,19 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        `<button onClick={() => RemoveFav(id)}> remove</button>
+        <button
+          onClick={() => RemoveFav({ name, rating, date, votes, img, id })}
+        >
+          remove
+        </button>
         <Link
           to={`/favorites/${id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
           <Card
+            onClick={detailHandler}
             variants={CardHover}
             whileHover="whileHover"
-            onClick={detailHandler}
           >
             {/* <h2>{name}</h2>
 
@@ -75,9 +79,15 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
 const Wrapper = styled(motion.div)`
   cursor: "pointer";
+  width: 400px;
+  max-width: 400px;
+  height: 300px;
+  max-height: 300px;
+  margin: 20px;
   button {
     width: 100%;
-    height: 20px;
+    padding: 10px;
+    cursor: pointer;
   }
 `;
 
@@ -87,9 +97,9 @@ const Card = styled(motion.div)`
   cursor: pointer;
 
   .default-image {
-    height: 500px;
+    height: 100%;
     img {
-      height: 500px;
+      height: 100%;
     }
   }
 
@@ -97,8 +107,6 @@ const Card = styled(motion.div)`
     display: block;
     width: 100%;
     object-fit: cover;
-    min-height: 40vh;
-    max-height: 40vh;
   }
 
   box-shadow: #130101ba 1px 1px 20px;

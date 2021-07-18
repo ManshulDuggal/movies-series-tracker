@@ -33,7 +33,6 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
     <div>
       <Wrapper>
         <Favourites>
-          `
           <button
             onClick={() =>
               dispatch(
@@ -89,6 +88,7 @@ const Card = styled(motion.div)`
   background-color: white;
   border-radius: 2%;
   cursor: pointer;
+  margin: 20px;
 
   .default-image {
     height: 500px;
