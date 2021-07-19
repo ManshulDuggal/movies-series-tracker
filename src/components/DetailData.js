@@ -20,7 +20,7 @@ const DetailData = ({ pathVar }) => {
     const element = e.target;
     if (element.classList.contains("fix")) {
       document.body.style.overflow = "auto";
-      history.push("/movies");
+      history.push("/movie");
     }
   };
 

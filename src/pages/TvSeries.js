@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { seriesAction } from "../redux/actions/seriesAction";
 
 import SeriesCard from "../components/Series";
-import DetailData from "../components/DetailDataSeries";
+import DetailDataSeries from "../components/DetailDataSeries";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -30,7 +30,7 @@ const TvSeries = () => {
 
   return (
     <>
-      {pathVar2 && <DetailData />}
+      {pathVar2 && <DetailDataSeries />}
 
       {!isLoading && (
         <Section>

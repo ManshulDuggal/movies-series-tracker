@@ -24,7 +24,7 @@ function App() {
         <Favourites />
       </Route>
 
-      <Route path={["/movie/:id", "/series"]} exact>
+      <Route path={["/series/:id", "/series"]} exact>
         <TvSeries />
       </Route>
     </div>

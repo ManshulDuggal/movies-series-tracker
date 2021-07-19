@@ -65,7 +65,9 @@ const Cardwrapper = styled(motion.div)`
   min-height: 90vh;
   display: grid;
   grid-gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns:
+    minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr)
+    minmax(100px, 1fr) minmax(100px, 1fr);
 
   h2 {
     font-weight: bolder;

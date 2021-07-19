@@ -22,9 +22,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   // const { favorites } = useSelector((state) => state.favorites);
   const RemoveFav = (id) => {
     dispatch(favoriteRemoveAction(id));
-
-    // const newList = favorites.filter((favorites) => favorites.name !== name);
-    // console.log(JSON.stringify(newList) + "this is your new list");
+    alert(name + " removed from favourites");
   };
 
   const detailHandler = () => {
@@ -35,7 +33,14 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        `<button onClick={() => RemoveFav(id)}> remove</button>
+        `
+        <motion.button
+          variants={CardHover}
+          whileHover="whileHover"
+          onClick={() => RemoveFav(id)}
+        >
+          remove
+        </motion.button>
         <Link
           to={`/favorites/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -76,8 +81,23 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 const Wrapper = styled(motion.div)`
   cursor: "pointer";
   button {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color: white;
+    height: 30px;
+    background-color: #00000060;
     width: 100%;
-    height: 20px;
+    overflow: hidden;
+    border: none;
+    &:hover {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      display: block;
+      transition: all 0.2s ease-in-out;
+      background-color: #b92512a3;
+
+      cursor: pointer;
+    }
   }
 `;
 

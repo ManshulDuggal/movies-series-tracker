@@ -32,18 +32,15 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        <Favourites>
-          `
-          <button
-            onClick={() =>
-              dispatch(
-                favoriteAddAction({ name, rating, date, votes, img, id })
-              )
-            }
-          >
-            add to favorites
-          </button>
-        </Favourites>
+        <motion.button
+          variants={CardHover}
+          whileHover="whileHover"
+          onClick={() =>
+            dispatch(favoriteAddAction({ name, rating, date, votes, img, id }))
+          }
+        >
+          add to favorites
+        </motion.button>
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -53,10 +50,6 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
             whileHover="whileHover"
             onClick={detailHandler}
           >
-            {/* <h2>{name}</h2>
-
-            <h3>{date}</h3> */}
-
             <div className="poster">
               <img
                 src={
@@ -83,6 +76,25 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
 const Wrapper = styled(motion.div)`
   cursor: "pointer";
+  button {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color: white;
+    height: 30px;
+    background-color: #00000060;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    &:hover {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      display: block;
+      transition: all 0.2s ease-in-out;
+      background-color: #34c717a4;
+
+      cursor: pointer;
+    }
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -112,21 +124,6 @@ const Card = styled(motion.div)`
       max-height: 30vh;
     }
   }
-`;
-
-const Favourites = styled.div`
-  z-index: 2;
-  border: none;
-  padding: 2rem;
-  button {
-    height: 20px;
-    width: 100%;
-  }
-  /* img {
-    cursor: pointer;
-    pointer-events: all;
-    width: 30px;
-  } */
 `;
 
 export default MovieCards;

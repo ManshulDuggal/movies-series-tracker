@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
-const DetailData = ({ pathVar2 }) => {
+const DetailDataSeries = ({ pathVar2 }) => {
   let image = "https://image.tmdb.org/t/p/w342";
 
   const history = useHistory();
@@ -343,4 +343,4 @@ const Trailer = styled(motion.div)`
     }
   }
 `;
-export default DetailData;
+export default DetailDataSeries;

@@ -7,9 +7,10 @@ import { CardHover } from "../anim/Anim";
 //Rudux
 import { useDispatch } from "react-redux";
 import { getDetailSeries } from "../redux/actions/detailstvaction";
+import { favoriteAddAction } from "../redux/actions/favouriteAction";
 //link
 import { Link } from "react-router-dom";
-const SeriesCards = ({ name, rating, votes, img, id }) => {
+const SeriesCards = ({ name, rating, votes, img, id, date }) => {
   let imageLink = " https://image.tmdb.org/t/p/w342";
 
   // const StringToInt = id.toString();
@@ -22,8 +23,17 @@ const SeriesCards = ({ name, rating, votes, img, id }) => {
   return (
     <div>
       <Wrapper>
+        <motion.button
+          variants={CardHover}
+          whileHover="whileHover"
+          onClick={() =>
+            dispatch(favoriteAddAction({ name, rating, date, votes, img, id }))
+          }
+        >
+          add to favorites
+        </motion.button>
         <Link
-          to={`/movie/${id}`}
+          to={`/series/${id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
           <Card
@@ -52,6 +62,25 @@ const SeriesCards = ({ name, rating, votes, img, id }) => {
 
 const Wrapper = styled.div`
   cursor: "pointer";
+  button {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color: white;
+    height: 30px;
+    background-color: #00000060;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    &:hover {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      display: block;
+      transition: all 0.2s ease-in-out;
+      background-color: #34c717a4;
+
+      cursor: pointer;
+    }
+  }
 `;
 
 const Card = styled(motion.div)`
