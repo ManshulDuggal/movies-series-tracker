@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //we can dispatch things to the state using useDispatch and we can get back or extract the inbformation using useSelector
 import { moviesAction } from "../redux/actions/moviesAction";
-
+import Modal from "../components/modal";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import MovieCards from "../components/Movies";
@@ -33,15 +33,20 @@ const Home = () => {
         <h1>Popular Movies</h1>
         <Cardwrapper>
           {popularMovies.map((movie) => (
-            <MovieCards
-              name={movie.title}
-              key={movie.id}
-              rating={movie.vote_average}
-              date={movie.release_date ? movie.release_date : "To Be Announced"}
-              votes={movie.vote_count}
-              img={movie.poster_path}
-              id={movie.id}
-            />
+            <div>
+              <MovieCards
+                name={movie.title}
+                key={movie.id}
+                rating={movie.vote_average}
+                date={
+                  movie.release_date ? movie.release_date : "To Be Announced"
+                }
+                votes={movie.vote_count}
+                img={movie.poster_path}
+                id={movie.id}
+              />
+              <Modal id={movie.id} />
+            </div>
           ))}
         </Cardwrapper>
         <div className="heading">
@@ -49,16 +54,21 @@ const Home = () => {
         </div>
         <Cardwrapper>
           {trendingMovies.map((movie) => (
-            <MovieCards
-              favourites={false}
-              name={movie.title ? movie.title : movie.original_name}
-              key={movie.id}
-              rating={movie.vote_average}
-              date={movie.release_date ? movie.release_date : "To Be Announced"}
-              votes={movie.vote_count}
-              img={movie.poster_path}
-              id={movie.id}
-            />
+            <div>
+              <MovieCards
+                favourites={false}
+                name={movie.title ? movie.title : movie.original_name}
+                key={movie.id}
+                rating={movie.vote_average}
+                date={
+                  movie.release_date ? movie.release_date : "To Be Announced"
+                }
+                votes={movie.vote_count}
+                img={movie.poster_path}
+                id={movie.id}
+              />
+              <Modal id={movie.id} />
+            </div>
           ))}
         </Cardwrapper>
       </Section>

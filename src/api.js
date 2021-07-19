@@ -26,3 +26,8 @@ export const GetTrailers = (get_id) =>
   `${base_url}3/movie/${get_id}/videos?api_key=${MOVIE_KEY}&language=en-US`;
 export const GetTrailersSeries = (get_id) =>
   `${base_url}3/tv/${get_id}/videos?api_key=${MOVIE_KEY}&language=en-US`;
+
+export const previewMovies = (get_id) =>
+  `${base_url}3/movie/${get_id}/videos?api_key=${MOVIE_KEY}&language=en-US`;
+export const previewSeries = (get_id) =>
+  `${base_url}3/tv/${get_id}/videos?api_key=${MOVIE_KEY}&language=en-US`;
