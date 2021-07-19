@@ -101,7 +101,7 @@ const Card = styled(motion.div)`
   background-color: white;
   border-radius: 2%;
   cursor: pointer;
-  margin: 20px;
+  
 
   .default-image {
     height: 500px;

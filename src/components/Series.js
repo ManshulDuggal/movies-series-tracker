@@ -87,6 +87,7 @@ const Card = styled(motion.div)`
   background-color: white;
   border-radius: 2%;
   cursor: pointer;
+
   .deafult-image {
     height: 500px;
     img {

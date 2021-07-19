@@ -63,17 +63,11 @@ const Section = styled(motion.div)`
 const Cardwrapper = styled(motion.div)`
   padding: 2rem;
   min-height: 90vh;
-<<<<<<< HEAD
   display: grid;
   grid-gap: 3rem;
   grid-template-columns:
     minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr)
     minmax(100px, 1fr) minmax(100px, 1fr);
-=======
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
->>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
 
   h2 {
     font-weight: bolder;
