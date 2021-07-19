@@ -20,9 +20,17 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
   const dispatch = useDispatch();
   // const { favorites } = useSelector((state) => state.favorites);
+<<<<<<< HEAD
   const RemoveFav = (id) => {
     dispatch(favoriteRemoveAction(id));
     alert(name + " removed from favourites");
+=======
+  const RemoveFav = (movie) => {
+    dispatch(favoriteRemoveAction(movie));
+
+    // const newList = favorites.filter((favorites) => favorites.name !== name);
+    // console.log(JSON.stringify(newList) + "this is your new list");
+>>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
   };
 
   const detailHandler = () => {
@@ -33,6 +41,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
+<<<<<<< HEAD
         `
         <motion.button
           variants={CardHover}
@@ -41,14 +50,21 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
         >
           remove
         </motion.button>
+=======
+        <button
+          onClick={() => RemoveFav({ name, rating, date, votes, img, id })}
+        >
+          remove
+        </button>
+>>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
         <Link
           to={`/favorites/${id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
           <Card
+            onClick={detailHandler}
             variants={CardHover}
             whileHover="whileHover"
-            onClick={detailHandler}
           >
             {/* <h2>{name}</h2>
 
@@ -80,6 +96,11 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
 const Wrapper = styled(motion.div)`
   cursor: "pointer";
+  width: 400px;
+  max-width: 400px;
+  height: 300px;
+  max-height: 300px;
+  margin: 20px;
   button {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -87,6 +108,7 @@ const Wrapper = styled(motion.div)`
     height: 30px;
     background-color: #00000060;
     width: 100%;
+<<<<<<< HEAD
     overflow: hidden;
     border: none;
     &:hover {
@@ -98,6 +120,10 @@ const Wrapper = styled(motion.div)`
 
       cursor: pointer;
     }
+=======
+    padding: 10px;
+    cursor: pointer;
+>>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
   }
 `;
 
@@ -107,9 +133,9 @@ const Card = styled(motion.div)`
   cursor: pointer;
 
   .default-image {
-    height: 500px;
+    height: 100%;
     img {
-      height: 500px;
+      height: 100%;
     }
   }
 
@@ -117,8 +143,6 @@ const Card = styled(motion.div)`
     display: block;
     width: 100%;
     object-fit: cover;
-    min-height: 40vh;
-    max-height: 40vh;
   }
 
   box-shadow: #130101ba 1px 1px 20px;
