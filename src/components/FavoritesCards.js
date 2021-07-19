@@ -20,17 +20,9 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
   const dispatch = useDispatch();
   // const { favorites } = useSelector((state) => state.favorites);
-<<<<<<< HEAD
   const RemoveFav = (id) => {
     dispatch(favoriteRemoveAction(id));
     alert(name + " removed from favourites");
-=======
-  const RemoveFav = (movie) => {
-    dispatch(favoriteRemoveAction(movie));
-
-    // const newList = favorites.filter((favorites) => favorites.name !== name);
-    // console.log(JSON.stringify(newList) + "this is your new list");
->>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
   };
 
   const detailHandler = () => {
@@ -41,8 +33,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-<<<<<<< HEAD
-        `
+        
         <motion.button
           variants={CardHover}
           whileHover="whileHover"
@@ -50,13 +41,6 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
         >
           remove
         </motion.button>
-=======
-        <button
-          onClick={() => RemoveFav({ name, rating, date, votes, img, id })}
-        >
-          remove
-        </button>
->>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
         <Link
           to={`/favorites/${id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -108,7 +92,6 @@ const Wrapper = styled(motion.div)`
     height: 30px;
     background-color: #00000060;
     width: 100%;
-<<<<<<< HEAD
     overflow: hidden;
     border: none;
     &:hover {
@@ -120,10 +103,6 @@ const Wrapper = styled(motion.div)`
 
       cursor: pointer;
     }
-=======
-    padding: 10px;
-    cursor: pointer;
->>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
   }
 `;
 
