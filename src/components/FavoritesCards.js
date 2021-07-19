@@ -33,7 +33,6 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-        
         <motion.button
           variants={CardHover}
           whileHover="whileHover"
@@ -80,11 +79,7 @@ const FavoritesCards = ({ name, rating, date, votes, img, id, isLoading }) => {
 
 const Wrapper = styled(motion.div)`
   cursor: "pointer";
-  width: 400px;
-  max-width: 400px;
-  height: 300px;
-  max-height: 300px;
-  margin: 20px;
+
   button {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
