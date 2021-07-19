@@ -32,7 +32,6 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
   return (
     <div>
       <Wrapper>
-<<<<<<< HEAD
         <motion.button
           variants={CardHover}
           whileHover="whileHover"
@@ -42,19 +41,6 @@ const MovieCards = ({ name, rating, date, votes, img, id, isLoading }) => {
         >
           add to favorites
         </motion.button>
-=======
-        <Favourites>
-          <button
-            onClick={() =>
-              dispatch(
-                favoriteAddAction({ name, rating, date, votes, img, id })
-              )
-            }
-          >
-            add to favorites
-          </button>
-        </Favourites>
->>>>>>> 89bd5d311f5a5cad3fad7d42920a0ccafa62aaa9
         <Link
           to={`/movie/${id}`}
           style={{ textDecoration: "none", color: "black" }}
