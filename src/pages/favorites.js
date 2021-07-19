@@ -88,7 +88,6 @@ const Cardwrapper = styled(motion.div)`
 
   @media only screen and (max-width: 450px) {
     grid-template-columns: repeat(2, minmax(100px, 3fr));
-
     h2,
     h1,
     h3 {
