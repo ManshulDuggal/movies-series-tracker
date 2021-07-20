@@ -90,7 +90,7 @@ const Section = styled(motion.div)`
     font-family: "Archivo Black", sans-serif;
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 600px) {
     h1 {
       font-size: 0.8rem;
       width: 40%;
@@ -103,7 +103,7 @@ const Cardwrapper = styled(motion.div)`
   min-height: 90vh;
   display: grid;
   grid-gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
   h2 {
     font-weight: bolder;
@@ -124,7 +124,7 @@ const Cardwrapper = styled(motion.div)`
     }
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 600px) {
     grid-template-columns: repeat(auto-fit, minmax(100px, 3fr));
 
     h2,
