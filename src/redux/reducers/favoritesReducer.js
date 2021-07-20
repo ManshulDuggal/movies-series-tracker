@@ -20,7 +20,7 @@ const favoritesReducer = (state = initState, action) => {
       return {
         ...state,
         favorites: [
-          ...state.favorites.filter((fav) => fav.id !== action.payload.id),
+          ...state.favorites.filter((fav) => fav.id !== action.payload),
         ],
       };
     default:

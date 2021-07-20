@@ -1,12 +1,12 @@
-export const favoriteAddAction = (movie) => {
+export const favoriteAddAction = (id) => {
   return {
     type: "ADD_FAVOURITE",
-    payload: movie,
+    payload: id,
   };
 };
-export const favoriteRemoveAction = (movie) => {
+export const favoriteRemoveAction = (id) => {
   return {
     type: "REMOVE_FAVOURITE",
-    payload: movie,
+    payload: id,
   };
 };
