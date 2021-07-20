@@ -99,8 +99,8 @@ const Card = styled(motion.div)`
     overflow: hidden;
     width: 100%;
     object-fit: cover;
-    min-height: 40vh;
-    max-height: 40vh;
+    min-height: 50vh;
+    max-height: 50vh;
   }
 
   box-shadow: #130101ba 1px 1px 20px;

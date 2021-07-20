@@ -20,8 +20,6 @@ const ModalSeries = ({ id }) => {
   const dispatch = useDispatch();
   const sendPreview = () => {
     dispatch(getPreviewSeries(id));
-    console.log(id);
-    console.log("it ran");
   };
   const combineFunctions = () => {
     toggleExampleModal();
@@ -48,6 +46,8 @@ const ModalSeries = ({ id }) => {
                 className="react-player"
                 width="100%"
                 height="100%"
+                controls={true}
+                pip={true}
                 config={{
                   youtube: {
                     playerVars: { showinfo: 1 },
