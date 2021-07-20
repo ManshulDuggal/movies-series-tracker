@@ -18,6 +18,7 @@ const favoritesReducer = (state = initState, action) => {
     }
     case "REMOVE_FAVOURITE":
       return {
+        ...state,
         favorites: [
           ...state.favorites.filter((fav) => fav.id !== action.payload.id),
         ],
